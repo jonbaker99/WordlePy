@@ -1,0 +1,12 @@
+{
+    "exclusions": {
+        "1st char": "",
+        "2nd char": "i",
+        "3rd char": "",
+        "4th char": "t",
+        "5th char": ""
+    },
+    "known_letters": "-LINT",
+    "unlocated_letters_in_word": "",
+    "letters_not_in_word": "adersohc"
+}
