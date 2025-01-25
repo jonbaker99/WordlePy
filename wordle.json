@@ -1,12 +1,12 @@
 {
     "exclusions": {
-        "1st char": "p",
-        "2nd char": "i",
+        "1st char": "",
+        "2nd char": "eo",
         "3rd char": "",
         "4th char": "",
-        "5th char": "rs"
+        "5th char": "d"
     },
-    "known_letters": "-ris-",
+    "known_letters": "-----",
     "unlocated_letters_in_word": "",
-    "letters_not_in_word": "adetom"
+    "letters_not_in_word": "hartsli"
 }
