@@ -4,9 +4,9 @@
         "2nd char": "",
         "3rd char": "",
         "4th char": "",
-        "5th char": ""
+        "5th char": "S"
     },
-    "known_letters": "-----",
-    "unlocated_letters_in_word": "",
-    "letters_not_in_word": ""
+    "known_letters": "-UN--",
+    "unlocated_letters_in_word": "S",
+    "letters_not_in_word": "AIDERLT"
 }
