@@ -279,3 +279,49 @@ def filter_list_for_chosen_letters(words: pd.DataFrame, required_letters: str) -
     filtered_df = words[words['WORD'].apply(contains_all_letters)]
 
     return filtered_df
+import json
+
+def update_wordle_json(wordle_json_name, input_string):
+    # Load the current wordle.json file
+    with open(wordle_json_name, "r") as file:
+        wordle_data = json.load(file)
+
+    # Parse the input string
+    word, pattern = input_string.split()
+
+    # Track occurrences of letters already processed for A or G
+    processed_letters = set()
+
+    # Process each character in the word and pattern
+    for idx, (char, status) in enumerate(zip(word, pattern)):
+        if status == "G":
+            # Update known_letters for correct placement
+            wordle_data["known_letters"] = (
+                wordle_data["known_letters"][:idx]
+                + char
+                + wordle_data["known_letters"][idx + 1:]
+            )
+            if char in wordle_data["unlocated_letters_in_word"]:
+                wordle_data["unlocated_letters_in_word"] = wordle_data["unlocated_letters_in_word"].replace(char, "")
+            processed_letters.add(char)
+        elif status == "A":
+            # Update exclusions and unlocated_letters_in_word
+            exclusion_key = f"{idx + 1}{['st', 'nd', 'rd'][idx] if idx < 3 else 'th'} char"
+            if exclusion_key not in wordle_data["exclusions"]:
+                wordle_data["exclusions"][exclusion_key] = ""
+            if char not in wordle_data["exclusions"][exclusion_key]:
+                wordle_data["exclusions"][exclusion_key] += char
+            if char not in wordle_data["unlocated_letters_in_word"]:
+                wordle_data["unlocated_letters_in_word"] += char
+            processed_letters.add(char)
+        elif status == "X":
+            # Only add to letters_not_in_word if not already processed as A or G
+            if char not in processed_letters and char not in wordle_data["letters_not_in_word"]:
+                wordle_data["letters_not_in_word"] += char
+
+    # Save the updated wordle.json
+    with open(wordle_json_name, "w") as file:
+        json.dump(wordle_data, file, indent=4)
+
+# Example usage
+#update_wordle_json("AMPLE XGXAX")
