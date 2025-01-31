@@ -70,15 +70,15 @@ def update_wordle_json(wordle_json_name, input_string):
                 wordle_data["exclusions"][exclusion_key] = ""
             if char not in wordle_data["exclusions"][exclusion_key]:
                 wordle_data["exclusions"][exclusion_key] += char
-            # Only add to unlocated letters if status is "A"
+                
             if status == "A" and char not in wordle_data["unlocated_letters_in_word"]:
+                # Add to unlocated letters if status is "A"
                 wordle_data["unlocated_letters_in_word"] += char
-            processed_letters.add(char)
-
-        elif status == "X":
-            # Only add to letters_not_in_word if not already processed
-            if char not in processed_letters and char not in wordle_data["letters_not_in_word"]:
+            elif status == "X" and char not in wordle_data["letters_not_in_word"]:
+                # Add to letters_not_in_word if status is "X"
                 wordle_data["letters_not_in_word"] += char
+                
+            processed_letters.add(char)
 
     # Clean up letters_not_in_word by removing any letters that appear in known_letters or unlocated_letters
     letters_to_remove = set(wordle_data["known_letters"].replace("-", "")) | set(wordle_data["unlocated_letters_in_word"])
