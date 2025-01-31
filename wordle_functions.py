@@ -7,10 +7,6 @@ from itertools import combinations, product
 import operator
 
 
-###############################################################################
-#                        wordle_candidates.py (Used Parts)                    #
-###############################################################################
-
 def reset_wordle_json(file_path: str):
     """
     Resets the wordle.json file to its default state.
@@ -50,22 +46,6 @@ def update_wordle_json(wordle_json_name, input_string):
     with open(wordle_json_name, "r") as file:
         wordle_data = json.load(file)
 
-def update_wordle_json(wordle_json_name, input_string):
-    """
-    Updates the JSON file (wordle_json_name) with a guess and pattern.
-
-    The pattern uses:
-     - 'G' (Green) to indicate correct letter and position
-     - 'A' (Amber) to indicate correct letter, wrong position
-     - 'X' (Gray) to indicate the letter is not in the final word
-
-    :param wordle_json_name: Path to your Wordle JSON file
-    :param input_string: String of the form "WORD PATTERN",
-                        e.g. "APPLE XGXAX"
-    """
-    with open(wordle_json_name, "r") as file:
-        wordle_data = json.load(file)
-
     word, pattern = input_string.split()
     processed_letters = set()
 
@@ -83,14 +63,15 @@ def update_wordle_json(wordle_json_name, input_string):
                     wordle_data["unlocated_letters_in_word"].replace(char, "")
             processed_letters.add(char)
 
-        elif status == "A":
+        elif status in ["A", "X"]:
             # Add to exclusions for this position
             exclusion_key = f"{idx + 1}{['st', 'nd', 'rd'][idx] if idx < 3 else 'th'} char"
             if exclusion_key not in wordle_data["exclusions"]:
                 wordle_data["exclusions"][exclusion_key] = ""
             if char not in wordle_data["exclusions"][exclusion_key]:
                 wordle_data["exclusions"][exclusion_key] += char
-            if char not in wordle_data["unlocated_letters_in_word"]:
+            # Only add to unlocated letters if status is "A"
+            if status == "A" and char not in wordle_data["unlocated_letters_in_word"]:
                 wordle_data["unlocated_letters_in_word"] += char
             processed_letters.add(char)
 
@@ -229,11 +210,7 @@ def wordle_filter(inputs, word_list: pd.DataFrame):
         # Convert to uppercase in the dictionary
         exclusions = {k: v.upper() for k, v in exclusions.items()}
         candidates = filter_words_by_exclusions(candidates, exclusions)
-
-        # Also fold any newly encountered excluded letters into 'unlocated_letters'
-        exclusion_letters = "".join(exclusions.values())
-        additional_letters = set(exclusion_letters) - set(known_letters) - set(unlocated_letters)
-        unlocated_letters = "".join(sorted(set(unlocated_letters) | additional_letters))
+        # Exclusion letters are no longer added to unlocated letters
 
     # Must contain these 'unlocated' letters
     if len(unlocated_letters) > 0:
@@ -287,9 +264,6 @@ def filter_list_for_chosen_letters(words: pd.DataFrame, required_letters: str) -
         return required_set.issubset(set(word.upper()))
     return words[words['WORD'].apply(contains_all_letters)]
 
-###############################################################################
-#                        wordle_tests.py (Used Parts)                         #
-###############################################################################
 
 def preprocess_word_list(word_list):
     """
@@ -382,9 +356,6 @@ def find_lowest_non_zero_max(results):
             best_combo = combo
     return best_combo, lowest_max
 
-###############################################################################
-#                   wordle_score_candidates.py (Used Parts)                   #
-###############################################################################
 
 def parse_wordle_json(json_path):
     """
@@ -586,6 +557,7 @@ def get_max_non_zero_matches(guesses, candidates_df):
     results_df.reset_index(drop=True, inplace=True)
     return results_df
 
+
 def filter_by_letter_count(
     df: pd.DataFrame, 
     letter: str = 'o', 
@@ -634,6 +606,7 @@ def filter_by_letter_count(
     # Return only those rows that match the condition
     return df[mask]
 
+
 def reset_tool(wordle_json_path):
     """
     Resets the Wordle environment, including the wordle.json file
@@ -652,20 +625,20 @@ def reset_tool(wordle_json_path):
     # 1. Reset the JSON file to its default contents
     reset_wordle_json(wordle_json_path)
 
-    # # 2. Return a dictionary of your typical solver variables, set to None
-    # return {
-    #     'candidates': None,
-    #     'combos': None,
-    #     'results2': None,
-    #     'best': None,
-    #     'all_letters': None,
-    #     'all_letters_string': None,
-    #     'filtered_combos': None,
-    #     'inputs': None,
-    #     'guess_score_df_candidates': None,
-    #     'guess_score_df_wordlist': None,
-    #     'guesses': None,
-    #     'words': None,
-    #     'words_from_candidates': None,
-    #     'words_from_wordlist': None
-    # }
+    # 2. Return a dictionary of your typical solver variables, set to None
+    return {
+        'candidates': None,
+        'combos': None,
+        'results2': None,
+        'best': None,
+        'all_letters': None,
+        'all_letters_string': None,
+        'filtered_combos': None,
+        'inputs': None,
+        'guess_score_df_candidates': None,
+        'guess_score_df_wordlist': None,
+        'guesses': None,
+        'words': None,
+        'words_from_candidates': None,
+        'words_from_wordlist': None
+    }
