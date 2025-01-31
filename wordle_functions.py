@@ -50,6 +50,22 @@ def update_wordle_json(wordle_json_name, input_string):
     with open(wordle_json_name, "r") as file:
         wordle_data = json.load(file)
 
+def update_wordle_json(wordle_json_name, input_string):
+    """
+    Updates the JSON file (wordle_json_name) with a guess and pattern.
+
+    The pattern uses:
+     - 'G' (Green) to indicate correct letter and position
+     - 'A' (Amber) to indicate correct letter, wrong position
+     - 'X' (Gray) to indicate the letter is not in the final word
+
+    :param wordle_json_name: Path to your Wordle JSON file
+    :param input_string: String of the form "WORD PATTERN",
+                        e.g. "APPLE XGXAX"
+    """
+    with open(wordle_json_name, "r") as file:
+        wordle_data = json.load(file)
+
     word, pattern = input_string.split()
     processed_letters = set()
 
@@ -82,6 +98,13 @@ def update_wordle_json(wordle_json_name, input_string):
             # Only add to letters_not_in_word if not already processed
             if char not in processed_letters and char not in wordle_data["letters_not_in_word"]:
                 wordle_data["letters_not_in_word"] += char
+
+    # Clean up letters_not_in_word by removing any letters that appear in known_letters or unlocated_letters
+    letters_to_remove = set(wordle_data["known_letters"].replace("-", "")) | set(wordle_data["unlocated_letters_in_word"])
+    wordle_data["letters_not_in_word"] = "".join(
+        char for char in wordle_data["letters_not_in_word"]
+        if char not in letters_to_remove
+    )
 
     with open(wordle_json_name, "w") as file:
         json.dump(wordle_data, file, indent=4)
