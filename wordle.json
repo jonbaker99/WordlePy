@@ -1,12 +1,12 @@
 {
     "exclusions": {
-        "1st char": "AV",
-        "2nd char": "",
-        "3rd char": "DT",
-        "4th char": "EA",
-        "5th char": "RL"
+        "1st char": "AN",
+        "2nd char": "IA",
+        "3rd char": "DI",
+        "4th char": "EL",
+        "5th char": "RS"
     },
-    "known_letters": "-I---",
-    "unlocated_letters_in_word": "AT",
-    "letters_not_in_word": "DERVL"
+    "known_letters": "-----",
+    "unlocated_letters_in_word": "AINLS",
+    "letters_not_in_word": "DER"
 }
