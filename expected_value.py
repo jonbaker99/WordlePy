@@ -154,3 +154,29 @@ def summarize_all_candidates(candidates):
         })
 
     return pd.DataFrame(summary_results).sort_values(by="Expected")
+
+
+def summarize_all_candidates_from_wordlist(candidates, words_to_evaluate):
+    """
+    Runs evaluation for every word in candidates['WORD'] and creates a summary DataFrame.
+    Ensures case insensitivity.
+    """
+    candidates["WORD"] = candidates["WORD"].str.lower()
+    summary_results = []
+
+    if words_to_evaluate is None:
+        words_to_evaluate = candidates["WORD"]
+
+    for guess in words_to_evaluate:
+        _, median, expected, worst_case, percentiles, _ = evaluate_guess_candidates(guess, candidates)
+
+        summary_results.append({
+            "Word": guess,
+            "Max": worst_case,
+            "Expected": expected,
+            "Median": median,
+            "25th Perc": percentiles["25th Percentile"],
+            "75th Perc": percentiles["75th Percentile"]
+        })
+
+    return pd.DataFrame(summary_results).sort_values(by="Expected")

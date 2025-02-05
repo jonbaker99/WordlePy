@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import json
 import importlib
+import time  # Import time module for timing
 
 # Import your consolidated Wordle solver functions
 import wordle_functions as wdl, expected_value as wev
@@ -53,11 +54,14 @@ if "restrict_to_candidates" not in st.session_state:
 if "combo_n" not in st.session_state:
     st.session_state["combo_n"] = 0
 
+if "summary_df" not in st.session_state:
+    st.session_state["summary_df"] = None
+
 ###############################################################################
 #                            STREAMLIT LAYOUT
 ###############################################################################
-# Version number at the top
-st.markdown("**Version: 1.2.0**")
+# **Updated Version Number**
+st.markdown("**Version: 1.3.1**")
 
 st.title("Wordle Solver App")
 
@@ -91,6 +95,7 @@ if st.button("Reset Wordle Tool"):
     wdl.reset_tool(st.session_state["wordle_json_path"])
     st.session_state["candidates"] = None
     st.session_state["inputs"] = None
+    st.session_state["summary_df"] = None
     update_persistent_section()
     st.success("Tool has been reset.")
 
@@ -108,32 +113,9 @@ if st.button("Submit Guess"):
     
     st.session_state["inputs"] = wdl.load_wordle_inputs(st.session_state["wordle_json_path"])
     st.session_state["candidates"] = wdl.wordle_filter(st.session_state["inputs"], st.session_state["word_list"])
+    st.session_state["summary_df"] = None
     update_persistent_section()
     st.success("Guess submitted and candidates updated.")
-
-st.subheader("Optional: Filter by Letter Count")
-col_letter, col_op, col_num, col_btn = st.columns([1, 1, 1, 1])
-
-with col_letter:
-    letter_to_filter = st.text_input("Letter:", value="o", max_chars=1).strip()
-
-with col_op:
-    operator_choice = st.selectbox("Comparison", [">", "<", ">=", "<=", "==", "!="])
-
-with col_num:
-    count_threshold = st.number_input("Threshold", min_value=0, max_value=10, value=2)
-
-with col_btn:
-    if st.button("Apply Letter Filter"):
-        if st.session_state["candidates"] is not None:
-            st.session_state["candidates"] = wdl.filter_by_letter_count(
-                st.session_state["candidates"], 
-                letter=letter_to_filter, 
-                comparator=operator_choice, 
-                count_threshold=count_threshold
-            )
-            update_persistent_section()
-            st.success(f"Filtered candidates by: {letter_to_filter} {operator_choice} {count_threshold}")
 
 ###############################################################################
 #               SECTION 3 - RESTRICT / NARROW DOWN NEXT GUESS
@@ -151,46 +133,6 @@ st.session_state["combo_n"] = st.number_input(
     value=st.session_state["combo_n"]
 )
 
-if st.button("Run Next-Guess Calculation"):
-    if st.session_state["candidates"] is None or len(st.session_state["candidates"]) == 0:
-        st.warning("No candidates to work with. Please submit a guess first.")
-    else:
-        inputs = st.session_state["inputs"]
-        
-        if st.session_state["combo_n"] == 0:
-            st.session_state["best_combo"] = None
-            st.session_state["best_combo_val"] = None
-            st.write("`combo_n = 0`. Will use **all candidate words** in Section 4.")
-        else:
-            all_letters = wdl.letters_in_candidates(st.session_state["candidates"], inputs)
-            all_letters_string = ''.join(all_letters)
-            
-            combos = wdl.get_n_letter_combinations(
-                all_letters_string, 
-                st.session_state["combo_n"]
-            )
-
-            if st.session_state["restrict_to_candidates"]:
-                words = st.session_state["candidates"]['WORD']
-            else:
-                words = st.session_state["word_list"]['WORD']
-
-            filtered_combos = wdl.filter_combos(words, combos)
-            results2 = wdl.process_binary_combos_with_optimised_counting(
-                filtered_combos,
-                st.session_state["candidates"]['WORD']
-            )
-            best = wdl.find_lowest_non_zero_max(results2)
-
-            st.session_state["best_combo"] = best[0]
-            st.session_state["best_combo_val"] = best[1]
-
-            st.write("Best Combo:", best[0])
-            st.write("Lowest Non-Zero Max:", best[1])
-
-            if best[0] is None or best[1] == float('inf'):
-                st.warning("No valid combo found (or all combos had zero matches).")
-
 ###############################################################################
 #                  SECTION 4 - FIND THE BEST WORDS TO USE
 ###############################################################################
@@ -201,48 +143,80 @@ if st.button("Compute & Display Best Words"):
         st.warning("No candidates exist. Please submit a guess or reset first.")
     else:
         restrict_to_candidates = st.session_state["restrict_to_candidates"]
-        inputs = st.session_state["inputs"]
-        word_list = st.session_state["word_list"]
         candidates = st.session_state["candidates"]
-        best_combo_letters = st.session_state.get("best_combo", None)
 
-        if best_combo_letters is None:
-            st.write("No best combo available. Using **all candidates**.")
-            if restrict_to_candidates:
-                guesses = candidates['WORD']
-            else:
-                guesses = word_list['WORD']
+        if restrict_to_candidates:
+            guesses = candidates['WORD']
         else:
-            if not restrict_to_candidates:
-                words_from_wordlist = wdl.filter_list_for_chosen_letters(
-                    word_list,
-                    best_combo_letters
-                ).copy()
-                if len(words_from_wordlist) > 0:
-                    guesses = words_from_wordlist['WORD']
-                    guess_score_df_wordlist = wdl.get_max_non_zero_matches(guesses, candidates)
-                    st.subheader("Ranked words from whole list")
-                    st.dataframe(guess_score_df_wordlist.head(10))
-                else:
-                    st.write("No scored guesses from wordlist.")
-            else:
-                words_from_wordlist = None
-            
-            words_from_candidates = wdl.filter_list_for_chosen_letters(
-                candidates,
-                best_combo_letters
-            ).copy()
-            if len(words_from_candidates) > 0:
-                guesses = words_from_candidates['WORD']
-            else:
-                guesses = pd.Series([])
+            guesses = st.session_state["word_list"]['WORD']
 
         if guesses is not None and len(guesses) > 0:
-            guess_score_df_candidates = wdl.get_max_non_zero_matches(guesses, candidates)
+            guess_score_df_candidates = wev.summarize_all_candidates(candidates)
             st.subheader("Ranked Words")
             st.dataframe(guess_score_df_candidates)
         else:
             st.write("No guesses to rank.")
+
+###############################################################################
+#                   SECTION 5 - SHOW SUMMARY DATAFRAME
+###############################################################################
+st.header("5) Compute & Display Summary Statistics")
+
+if st.button("Generate Summary Statistics"):
+    if st.session_state["candidates"] is None:
+        st.warning("No candidates exist. Please submit a guess or reset first.")
+    else:
+        # Show a message to indicate that computation has started
+        status_placeholder = st.empty()
+        status_placeholder.info("Computing summary statistics... Please wait.")
+
+        # Capture start time
+        start_time = time.time()
+
+        # Get the candidate words
+        candidate_words = st.session_state["candidates"]["WORD"].tolist()
+        num_candidates = len(candidate_words)
+
+        # Initialize an empty DataFrame to store results
+        summary_results = []
+
+        # Loop through each word, computing summary
+        for i, word in enumerate(candidate_words, start=1):
+            _, median, expected, worst_case, percentiles, _ = wev.evaluate_guess_candidates(word, st.session_state["candidates"])
+            
+            summary_results.append({
+                "Word": word,
+                "Max": worst_case,
+                "Expected": expected,
+                "Median": median,
+                "25th Perc": percentiles["25th Percentile"],
+                "75th Perc": percentiles["75th Percentile"]
+            })
+
+            # Update progress every 5 words to avoid slowing down UI
+            if i % 5 == 0 or i == num_candidates:
+                elapsed_time = time.time() - start_time
+                avg_time_per_word = elapsed_time / i
+                estimated_time_remaining = (num_candidates - i) * avg_time_per_word
+
+                status_placeholder.info(
+                    f"{i} of {num_candidates} words processed in {elapsed_time:.2f} seconds "
+                    f"({avg_time_per_word:.4f} seconds per word)\n"
+                    f"Estimated time remaining: {estimated_time_remaining:.2f} seconds"
+                )
+
+        # Store results in session state
+        st.session_state["summary_df"] = pd.DataFrame(summary_results).sort_values(by="Expected")
+
+        # Final status message
+        elapsed_time = time.time() - start_time
+        status_placeholder.success(f"{num_candidates} candidates evaluated in {elapsed_time:.2f} seconds "
+                                   f"({elapsed_time / num_candidates:.4f} seconds per candidate).")
+
+# Display the summary DataFrame if it exists
+if st.session_state["summary_df"] is not None:
+    st.subheader("Summary Statistics for Candidates")
+    st.dataframe(st.session_state["summary_df"])
 
 ###############################################################################
 #                          FINAL DISPLAY / FOOTER
