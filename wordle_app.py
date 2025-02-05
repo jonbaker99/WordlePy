@@ -4,7 +4,7 @@ import json
 import importlib
 
 # Import your consolidated Wordle solver functions
-import wordle_functions as wdl
+import wordle_functions as wdl, expected_value as wev
 
 ###############################################################################
 #                          HELPER FUNCTIONS
