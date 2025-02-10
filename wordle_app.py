@@ -59,6 +59,9 @@ if "guesses" not in st.session_state:
 if "summary_df" not in st.session_state:
     st.session_state["summary_df"] = None
 
+if "all_candidates" not in st.session_state:
+    st.session_state["all_candidates"] = False
+
 ###############################################################################
 #                            STREAMLIT LAYOUT
 ###############################################################################
@@ -90,6 +93,7 @@ if st.button("Reset Wordle Tool"):
     st.session_state["inputs"] = None
     st.session_state["guesses"] = None
     st.session_state["summary_df"] = None
+    st.session_state["all_candidates"] = None
     update_persistent_section()
     st.success("Tool has been reset.")
 
@@ -135,10 +139,13 @@ if st.button("Identify Words"):
     if st.session_state["combo_n"] == 0:
         if st.session_state["restrict_to_candidates"]:
             st.session_state["guesses"] = candidates["WORD"]
+            st.session_state["all_candidates"] = True
         else:
             st.warning("Full word list is too large. Please adjust parameters.")
             st.session_state["guesses"] = None
     else:
+        
+        st.session_state["all_candidates"] = False
         # Get all letters in remaining candidates
         all_letters = wdl.letters_in_candidates(candidates, inputs)
         all_letters_string = ''.join(all_letters)
@@ -163,7 +170,10 @@ if st.button("Identify Words"):
     # Display results
     num_guesses = len(st.session_state["guesses"]) if st.session_state["guesses"] is not None else 0
     st.write(f"Number of words in guesses: {num_guesses}")
-    st.write(st.session_state["guesses"])
+    if st.session_state["all_candidates"] == False:
+        st.write(st.session_state["guesses"])
+    else:
+        st.write("All candidates are selected; see candidate list in sidebar")    
 
 
 ###############################################################################
