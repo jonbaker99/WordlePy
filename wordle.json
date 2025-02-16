@@ -1,12 +1,12 @@
 {
     "exclusions": {
-        "1st char": "AS",
-        "2nd char": "IP",
-        "3rd char": "D",
-        "4th char": "E",
-        "5th char": "R"
+        "1st char": "AC",
+        "2nd char": "ILH",
+        "3rd char": "DU",
+        "4th char": "ETM",
+        "5th char": "RP"
     },
-    "known_letters": "--ILT",
-    "unlocated_letters_in_word": "",
-    "letters_not_in_word": "ADERSP"
+    "known_letters": "S-A-E",
+    "unlocated_letters_in_word": "U",
+    "letters_not_in_word": "IDRLTCHMP"
 }

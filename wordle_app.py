@@ -65,7 +65,7 @@ if "all_candidates" not in st.session_state:
 ###############################################################################
 #                            STREAMLIT LAYOUT
 ###############################################################################
-st.markdown("**Version: 1.5.0**")
+st.markdown("**Version: 1.6.0**")
 st.title("Wordle Solver App")
 
 sidebar_placeholder = st.sidebar.empty()
@@ -114,6 +114,9 @@ if st.button("Submit Guess"):
     st.session_state["summary_df"] = None
     update_persistent_section()
     st.success("Guess submitted and candidates updated.")
+    st.write(f"Number of candidates: {len(st.session_state['candidates'])}")
+    letters_left = wdl.letters_in_candidates(st.session_state["candidates"], st.session_state["inputs"])
+    st.write(f"Unguessed letters left in candidates: {letters_left}")
 
 ###############################################################################
 #               SECTION 3 - IDENTIFY WORDS FOR EVALUATION
