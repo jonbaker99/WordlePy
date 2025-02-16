@@ -65,7 +65,7 @@ if "all_candidates" not in st.session_state:
 ###############################################################################
 #                            STREAMLIT LAYOUT
 ###############################################################################
-st.markdown("**Version: 1.5.0**")
+st.markdown("**Version: 1.4.2**")
 st.title("Wordle Solver App")
 
 sidebar_placeholder = st.sidebar.empty()
@@ -120,98 +120,60 @@ if st.button("Submit Guess"):
 ###############################################################################
 st.header("3) Identify Words for Evaluation")
 
-# Checkbox for restricting guesses to candidates
 st.session_state["restrict_to_candidates"] = st.checkbox(
     "Restrict next guess to candidates only?",
     value=st.session_state["restrict_to_candidates"]
 )
 
-# Number input for combo_n (unknown letters to include)
 st.session_state["combo_n"] = st.number_input(
     "How many 'unknown' letters to include (combo_n)?",
     min_value=0, max_value=5,
     value=st.session_state["combo_n"]
 )
 
-# New input for custom letter combination (optional)
-custom_combo = st.text_input("Or enter a custom letter combo (optional):", value="").strip().lower()
-
 if st.button("Identify Words"):
     candidates = st.session_state["candidates"]
     word_list = st.session_state["word_list"]
     inputs = st.session_state["inputs"]
 
-    # Get all unknown letters from candidates
-    unknown_letters_set = wdl.letters_in_candidates(candidates, inputs)
-    unknown_letters_count = len(unknown_letters_set)
-    
-    # Validate combo_n against unknown letters
-    if st.session_state["combo_n"] > unknown_letters_count:
-        st.error(f"combo_n ({st.session_state['combo_n']}) exceeds the number of unknown letters ({unknown_letters_count}).")
-        st.stop()  # Stop further processing
-
-    # Case 1: Using combo_n == 0 (select all candidates)
-    if st.session_state["combo_n"] == 0 and custom_combo == "":
+    if st.session_state["combo_n"] == 0:
         if st.session_state["restrict_to_candidates"]:
             st.session_state["guesses"] = candidates["WORD"]
             st.session_state["all_candidates"] = True
         else:
             st.warning("Full word list is too large. Please adjust parameters.")
             st.session_state["guesses"] = None
-
-    # Case 2: Evaluate using a custom letter combination if provided
-    elif custom_combo:
-        # Check if any words contain the custom combo
-        if st.session_state["restrict_to_candidates"]:
-            filtered = wdl.filter_list_for_chosen_letters(candidates, custom_combo)
-        else:
-            filtered = wdl.filter_list_for_chosen_letters(word_list, custom_combo)
-
-        if filtered.empty:
-            st.error(f"No words found containing the custom combo: {custom_combo.upper()}")
-            st.stop()
-        else:
-            # Use the worst-case scoring functionality on the filtered words
-            # (This example uses get_max_non_zero_matches on the filtered list)
-            guess_score_df = wdl.get_max_non_zero_matches(filtered["WORD"], candidates)
-            st.write(f"Custom Combo '{custom_combo.upper()}' Results:")
-            st.write(guess_score_df)
-            st.session_state["guesses"] = filtered["WORD"]
-
-    # Case 3: Use combo_n to find the best letter combination
     else:
+        
         st.session_state["all_candidates"] = False
-        # Use the appropriate word source based on the restrict flag
-        source = candidates if st.session_state["restrict_to_candidates"] else word_list
-
-        # Get all letters in the source words
-        all_letters = wdl.letters_in_candidates(source, inputs)
+        # Get all letters in remaining candidates
+        all_letters = wdl.letters_in_candidates(candidates, inputs)
         all_letters_string = ''.join(all_letters)
+
         # Generate all valid combos of size combo_n
         combos = wdl.get_n_letter_combinations(all_letters_string, st.session_state["combo_n"])
+
         # Filter the best combo based on lowest worst-case scenario
-        filtered_combos = wdl.filter_combos(source["WORD"], combos)
-        results2 = wdl.process_binary_combos_with_optimised_counting(filtered_combos, source["WORD"])
+        filtered_combos = wdl.filter_combos(candidates["WORD"], combos)
+        results2 = wdl.process_binary_combos_with_optimised_counting(filtered_combos, candidates["WORD"])
         best_combo, best_score = wdl.find_lowest_non_zero_max(results2)
-        
-        # Check if a valid best_combo was found
-        if best_combo is None:
-            st.error("No valid letter combination found. Please adjust your parameters.")
-            st.stop()
 
         # Display the best letter combo and score
         st.write(f"Best Letter Combo: **{best_combo}** (Worst Case: {best_score})")
-        # Filter words that contain the best letter combo from the selected word source
-        st.session_state["guesses"] = wdl.filter_list_for_chosen_letters(source, best_combo)["WORD"]
+
+        # Filter words that contain the best letter combo
+        if st.session_state["restrict_to_candidates"]:
+            st.session_state["guesses"] = wdl.filter_list_for_chosen_letters(candidates, best_combo)["WORD"]
+        else:
+            st.session_state["guesses"] = wdl.filter_list_for_chosen_letters(word_list, best_combo)["WORD"]
 
     # Display results
     num_guesses = len(st.session_state["guesses"]) if st.session_state["guesses"] is not None else 0
     st.write(f"Number of words in guesses: {num_guesses}")
-    if st.session_state.get("all_candidates", False) == False:
+    if st.session_state["all_candidates"] == False:
         st.write(st.session_state["guesses"])
     else:
-        st.write("All candidates are selected; see candidate list in sidebar")
-
+        st.write("All candidates are selected; see candidate list in sidebar")    
 
 
 ###############################################################################

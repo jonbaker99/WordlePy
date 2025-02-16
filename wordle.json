@@ -1,12 +1,12 @@
 {
     "exclusions": {
-        "1st char": "",
-        "2nd char": "",
-        "3rd char": "",
-        "4th char": "",
-        "5th char": ""
+        "1st char": "AS",
+        "2nd char": "IP",
+        "3rd char": "D",
+        "4th char": "E",
+        "5th char": "R"
     },
-    "known_letters": "-----",
+    "known_letters": "--ILT",
     "unlocated_letters_in_word": "",
-    "letters_not_in_word": ""
+    "letters_not_in_word": "ADERSP"
 }
