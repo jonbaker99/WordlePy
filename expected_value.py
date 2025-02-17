@@ -148,12 +148,12 @@ def summarize_all_candidates(candidates):
             "Word": guess,
             "Max": worst_case,
             "Expected": expected,
-            "Median": median,
             "25th Perc": percentiles["25th Percentile"],
+            "Median": median,
             "75th Perc": percentiles["75th Percentile"]
         })
 
-    return pd.DataFrame(summary_results).sort_values(by="Expected")
+    return pd.DataFrame(summary_results).sort_values(by="Expected", ascending=True)
 
 
 def summarize_all_candidates_from_wordlist(candidates, words_to_evaluate):
@@ -174,9 +174,9 @@ def summarize_all_candidates_from_wordlist(candidates, words_to_evaluate):
             "Word": guess,
             "Max": worst_case,
             "Expected": expected,
-            "Median": median,
             "25th Perc": percentiles["25th Percentile"],
+            "Median": median,
             "75th Perc": percentiles["75th Percentile"]
         })
 
-    return pd.DataFrame(summary_results).sort_values(by="Expected")
+    return pd.DataFrame(summary_results).sort_values(by="Expected", ascending=True)
