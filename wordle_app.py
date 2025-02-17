@@ -6,7 +6,7 @@ import time
 
 # Import your Wordle solver functions
 import wordle_functions as wdl, expected_value as wev
-vers = "1.6.0"
+vers = "1.6.0 17/2/25"
 
 ###############################################################################
 #                          HELPER FUNCTIONS
