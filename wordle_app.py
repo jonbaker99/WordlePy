@@ -6,6 +6,7 @@ import time
 
 # Import your Wordle solver functions
 import wordle_functions as wdl, expected_value as wev
+vers = "1.6.0"
 
 ###############################################################################
 #                          HELPER FUNCTIONS
@@ -65,7 +66,7 @@ if "all_candidates" not in st.session_state:
 ###############################################################################
 #                            STREAMLIT LAYOUT
 ###############################################################################
-st.markdown("**Version: 1.6.0**")
+st.markdown(f"**Version: {vers}**")
 st.title("Wordle Solver App")
 
 sidebar_placeholder = st.sidebar.empty()
