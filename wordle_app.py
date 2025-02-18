@@ -3,10 +3,23 @@ import pandas as pd
 import json
 import importlib
 import time
+import os
+
 
 # Import your Wordle solver functions
 import wordle_functions as wdl, expected_value as wev
-vers = "1.6.5 17/2/25"
+
+
+## UPDATE VERSION INFO
+
+vers = "1.6.5"
+
+# Get the path of the main Streamlit script
+script_path = os.path.abspath(__file__)
+
+# Get last modified time
+last_modified = wdl.get_last_modified_timestamp(script_path)
+
 
 ###############################################################################
 #                          HELPER FUNCTIONS
@@ -66,7 +79,7 @@ if "all_candidates" not in st.session_state:
 ###############################################################################
 #                            STREAMLIT LAYOUT
 ###############################################################################
-st.markdown(f"**Version: {vers}**")
+st.markdown(f"Version: {vers} ({last_modified})")
 st.title("Wordle Solver App")
 
 sidebar_placeholder = st.sidebar.empty()

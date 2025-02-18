@@ -5,6 +5,9 @@ import json
 from collections import Counter, defaultdict
 from itertools import combinations, product
 import operator
+import os
+import subprocess
+from datetime import datetime
 
 
 def reset_wordle_json(file_path: str):
@@ -666,3 +669,16 @@ def word_count_for_each_letter_left(letters, word_list):
     df["% of Words"] = (df["Count"] / num_words * 100).round(0).astype(int).astype(str) + "%"
 
     return df
+
+def get_last_modified_timestamp(script_path):
+    """Get last modification timestamp from Git if available, otherwise use file modification time."""
+    try:
+        # Try to get the last commit timestamp from Git
+        timestamp = subprocess.check_output(
+            ["git", "log", "-1", "--format=%cd", "--date=format:%d/%m/%y %H:%M"]
+        ).decode("utf-8").strip()
+    except:
+        # If Git is not available, fallback to file modification time of the script
+        timestamp = datetime.fromtimestamp(os.path.getmtime(script_path)).strftime("%d/%m/%y %H:%M")
+    
+    return timestamp
