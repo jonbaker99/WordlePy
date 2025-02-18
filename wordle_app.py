@@ -6,7 +6,7 @@ import time
 
 # Import your Wordle solver functions
 import wordle_functions as wdl, expected_value as wev
-vers = "1.6.0 17/2/25"
+vers = "1.6.5 17/2/25"
 
 ###############################################################################
 #                          HELPER FUNCTIONS
@@ -115,9 +115,24 @@ if st.button("Submit Guess"):
     st.session_state["summary_df"] = None
     update_persistent_section()
     st.success("Guess submitted and candidates updated.")
-    st.write(f"Number of candidates: {len(st.session_state['candidates'])}")
-    letters_left = wdl.letters_in_candidates(st.session_state["candidates"], st.session_state["inputs"])
-    st.write(f"Unguessed letters left in candidates: {letters_left}")
+
+    # Store outputs in session state
+    st.session_state["num_candidates"] = len(st.session_state["candidates"])
+    st.session_state["letters_left"] = wdl.letters_in_candidates(st.session_state["candidates"], st.session_state["inputs"])
+    st.session_state["word_count_per_letter"] = wdl.word_count_for_each_letter_left(
+        st.session_state["letters_left"], st.session_state["candidates"]['WORD']
+    )
+
+# Ensure stored values persist after reruns
+if "num_candidates" in st.session_state:
+    st.write(f"Number of candidates: {st.session_state['num_candidates']}")
+
+if "letters_left" in st.session_state:
+    st.write(f"Unguessed letters left in candidates: {sorted(st.session_state['letters_left'])}")
+
+if "word_count_per_letter" in st.session_state:
+    st.write(st.session_state["word_count_per_letter"])
+
 
 ###############################################################################
 #               SECTION 3 - IDENTIFY WORDS FOR EVALUATION

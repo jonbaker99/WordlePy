@@ -642,3 +642,27 @@ def reset_tool(wordle_json_path):
         'words_from_candidates': None,
         'words_from_wordlist': None
     }
+
+def word_count_for_each_letter_left(letters, word_list):
+    """
+    Given a set of letters and a list of words, 
+    returns a dictionary with the count of words 
+    containing each letter in the set.
+    
+    :param letters: A set of letters
+    :param word_list: A list of words
+    :return: A dictionary with letter counts
+    """
+
+    num_words = word_list.count()
+
+    # Initialize dictionary to store counts
+    letter_counts = {letter: sum(letter in word for word in word_list) for letter in letters}
+
+    # Convert to DataFrame for tabular display
+    df = pd.DataFrame(list(letter_counts.items()), columns=["Letter", "Count"]).sort_values("Count", ascending=False)
+
+    # Add percentage column
+    df["% of Words"] = (df["Count"] / num_words * 100).round(0).astype(int).astype(str) + "%"
+
+    return df
