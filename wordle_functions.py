@@ -178,12 +178,20 @@ def candidates_ex_excluded(word_list: pd.DataFrame, letters_not_in_word: str):
     :param letters_not_in_word: String of letters known NOT to appear in the final word
     :return: Filtered DataFrame
     """
+    if word_list.empty:
+        return word_list  # Return empty DataFrame early
+
     excluded_letters = set(letters_not_in_word.upper())
 
     def does_not_contain_excluded_letters(word):
         return excluded_letters.isdisjoint(set(word.upper()))
 
+    if "WORD" not in word_list.columns:
+        print("Warning: 'WORD' column missing before filtering. Returning empty DataFrame.")
+        return pd.DataFrame(columns=["WORD"])
+
     return word_list[word_list['WORD'].apply(does_not_contain_excluded_letters)]
+
 
 
 def wordle_filter(inputs, word_list: pd.DataFrame):
