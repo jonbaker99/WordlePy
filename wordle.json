@@ -8,5 +8,6 @@
     },
     "known_letters": "-----",
     "unlocated_letters_in_word": "",
-    "letters_not_in_word": ""
+    "letters_not_in_word": "",
+    "previous_guesses": []
 }
