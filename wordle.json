@@ -1,12 +1,12 @@
 {
     "exclusions": {
-        "1st char": "ATB",
-        "2nd char": "L",
-        "3rd char": "DN",
-        "4th char": "ES",
-        "5th char": "RS"
+        "1st char": "",
+        "2nd char": "",
+        "3rd char": "",
+        "4th char": "",
+        "5th char": ""
     },
-    "known_letters": "-IEGE",
-    "unlocated_letters_in_word": "S",
-    "letters_not_in_word": "ADRTNBL"
+    "known_letters": "-----",
+    "unlocated_letters_in_word": "",
+    "letters_not_in_word": ""
 }
