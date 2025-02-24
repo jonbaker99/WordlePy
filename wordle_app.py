@@ -12,7 +12,7 @@ import wordle_functions as wdl, expected_value as wev
 
 ## UPDATE VERSION INFO
 
-vers = "1.6.5"
+vers = "1.6.5 (PRE GPT UPDATE)"
 
 # Get the path of the main Streamlit script
 script_path = os.path.abspath(__file__)
