@@ -1,16 +1,13 @@
 {
     "exclusions": {
-        "1st char": "AS",
-        "2nd char": "IN",
-        "3rd char": "D",
-        "4th char": "ER",
-        "5th char": "R"
+        "1st char": "",
+        "2nd char": "",
+        "3rd char": "",
+        "4th char": "",
+        "5th char": ""
     },
-    "known_letters": "--A-E",
-    "unlocated_letters_in_word": "RN",
-    "letters_not_in_word": "IDS",
-    "previous_guesses": [
-        "AIDER AXXAA (219)",
-        "SNARE XAGAG (2)"
-    ]
+    "known_letters": "-----",
+    "unlocated_letters_in_word": "",
+    "letters_not_in_word": "",
+    "previous_guesses": []
 }

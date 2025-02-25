@@ -8,7 +8,7 @@ import wordle_functions as wdl
 import expected_value as wev
 
 # Version info
-version = "1.8.1"
+version = "1.8.2"
 script_path = os.path.abspath(__file__)
 last_modified = wdl.get_last_modified_timestamp(script_path)
 
@@ -29,7 +29,7 @@ def save_json_file(path: str, data: dict):
 sidebar_placeholder = st.sidebar.empty()
 
 def update_sidebar():
-    sidebar_placeholder.empty()
+    sidebar_placeholder.empty()  # Clear sidebar first
     with sidebar_placeholder.container():
         st.subheader("Wordle JSON Criteria")
         st.json(load_json_file(st.session_state["wordle_json_path"]))
@@ -55,7 +55,7 @@ def get_ordinal(n: int) -> str:
 # STREAMLIT STATE INITIALIZATION
 ###############################################################################
 if "wordle_json_path" not in st.session_state:
-    st.session_state["wordle_json_path"] = "wordle.json"
+    st.session_state["wordle_json_path"] = "wordle.json"  # Make sure wordle.json has a "previous_guesses": [] key.
 
 data = load_json_file(st.session_state["wordle_json_path"])
 if "previous_guesses" not in st.session_state:
@@ -63,13 +63,14 @@ if "previous_guesses" not in st.session_state:
 
 if "word_list" not in st.session_state:
     st.session_state["word_list"] = pd.read_csv("word_list.csv")
-    
+
 if "candidates" not in st.session_state:
     st.session_state["candidates"] = None
-    
+
 if "inputs" not in st.session_state:
     st.session_state["inputs"] = None
 
+# Initialize additional keys.
 if "restrict_to_candidates" not in st.session_state:
     st.session_state["restrict_to_candidates"] = True
 if "combo_n" not in st.session_state:
@@ -80,6 +81,12 @@ if "summary_df" not in st.session_state:
     st.session_state["summary_df"] = None
 if "all_candidates" not in st.session_state:
     st.session_state["all_candidates"] = False
+
+# ---- Change 1: Set default guess values on reset ----
+if "default_guess" not in st.session_state:
+    st.session_state["default_guess"] = "AIDER"
+if "default_result" not in st.session_state:
+    st.session_state["default_result"] = "XXXXX"
 
 ###############################################################################
 # MAIN LAYOUT HEADER
@@ -101,6 +108,9 @@ if st.button("Reset Wordle Tool"):
     st.session_state["guesses"] = None
     st.session_state["summary_df"] = None
     st.session_state["all_candidates"] = False
+    # ---- Change 1: Set defaults on reset ----
+    st.session_state["default_guess"] = "AIDER"
+    st.session_state["default_result"] = "XXXXX"
     st.success("Tool has been reset.")
     update_sidebar()
     st.rerun()
@@ -121,8 +131,9 @@ current_guess_number = len(st.session_state["previous_guesses"]) + 1
 guess_prompt = f"Enter {get_ordinal(current_guess_number)} guess"
 
 with st.form(key="guess_form"):
-    user_guess = st.text_input(guess_prompt)
-    user_result = st.text_input("Enter result (5 characters: X, A, G):")
+    # ---- Change 1: Prepopulate with default values from session state ----
+    user_guess = st.text_input(guess_prompt, value=st.session_state.get("default_guess", ""))
+    user_result = st.text_input("Enter result (5 characters: X, A, G):", value=st.session_state.get("default_result", ""))
     submitted = st.form_submit_button("Submit Guess")
 
 if submitted:
@@ -132,7 +143,7 @@ if submitted:
         st.error("Guess word must be exactly 5 letters.")
     elif user_guess.lower() not in st.session_state["word_list"]["WORD"].str.lower().values:
         st.error("Guess word must appear in the word list.")
-    elif len(user_result) != 5 or not all(ch.upper() in ['X','A','G'] for ch in user_result):
+    elif len(user_result) != 5 or not all(ch.upper() in ['X', 'A', 'G'] for ch in user_result):
         st.error("Guess result must be exactly 5 characters long (only X, A, or G).")
     else:
         final_guess = f"{user_guess.upper()} {user_result.upper()}"
@@ -148,6 +159,9 @@ if submitted:
         st.session_state["previous_guesses"] = data["previous_guesses"]
         st.success("Guess submitted and candidates updated.")
         update_sidebar()
+        # ---- Clear default so next guess starts empty (except result resets to XXXXX) ----
+        st.session_state["default_guess"] = ""
+        st.session_state["default_result"] = "XXXXX"
         st.rerun()
 
 if st.session_state["candidates"] is not None:
@@ -182,7 +196,12 @@ if st.button("Identify Words"):
         inputs = st.session_state["inputs"]
         unknown_letters_set = wdl.letters_in_candidates(candidates, inputs)
         unknown_letters_count = len(unknown_letters_set)
-        if st.session_state["combo_n"] > unknown_letters_count:
+        # ---- Change 2: Add info message if evaluating the entire candidate list ----
+        if st.session_state["combo_n"] == 0 and not custom_combo and st.session_state["restrict_to_candidates"]:
+            st.info("Evaluating entire candidate list.")
+            st.session_state["guesses"] = candidates["WORD"]
+            st.session_state["all_candidates"] = True
+        elif st.session_state["combo_n"] > unknown_letters_count:
             st.error(f"combo_n ({st.session_state['combo_n']}) exceeds unknown letters ({unknown_letters_count}).")
         else:
             if st.session_state["combo_n"] == 0 and not custom_combo:
@@ -221,9 +240,7 @@ if st.button("Identify Words"):
 # SECTION 4: EVALUATE WORDS
 ##########################
 st.header("4) Evaluate Words")
-
 analysis_choice = st.radio("Choose Analysis Type:", ["Max Only", "Full Analysis"])
-
 if st.button("Run Analysis"):
     guesses = st.session_state.get("guesses")
     if guesses is None or (hasattr(guesses, "empty") and guesses.empty):
