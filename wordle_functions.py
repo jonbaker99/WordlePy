@@ -37,27 +37,48 @@ def reset_wordle_json(file_path: str):
 def update_wordle_json(wordle_json_name, input_string):
     """
     Updates the wordle.json file with a new guess and its feedback.
+    
+    For each letter with status "A", if the total number of that letter marked as A 
+    (in the current guess) exceeds the number already in known_letters, add one occurrence 
+    to unlocated_letters_in_word.
     """
     with open(wordle_json_name, "r") as file:
         wordle_data = json.load(file)
+    
     word, pattern = input_string.split()
     word = word.upper()
     pattern = pattern.upper()
+    
+    # Pre-calculate frequency of 'A' statuses for each letter in the guess.
+    a_counts = Counter([ch for ch, s in zip(word, pattern) if s.upper() == "A"])
+    
     for idx, (char, status) in enumerate(zip(word, pattern)):
         if status == "G":
-            wordle_data["known_letters"] = wordle_data["known_letters"][:idx] + char + wordle_data["known_letters"][idx+1:]
+            # Place the letter in the correct position.
+            wordle_data["known_letters"] = (
+                wordle_data["known_letters"][:idx] + char + wordle_data["known_letters"][idx+1:]
+            )
+            # Remove this letter from unlocated_letters if present.
             wordle_data["unlocated_letters_in_word"] = wordle_data["unlocated_letters_in_word"].replace(char, "")
         elif status in ["A", "X"]:
             key = f"{idx+1}{['st','nd','rd'][idx] if idx < 3 else 'th'} char"
             current_exclusions = wordle_data["exclusions"].get(key, "")
             if char not in current_exclusions:
                 wordle_data["exclusions"][key] = current_exclusions + char
-            if status == "A" and char not in wordle_data["unlocated_letters_in_word"] and char not in wordle_data["known_letters"]:
-                wordle_data["unlocated_letters_in_word"] += char
-            elif status == "X" and char not in wordle_data["letters_not_in_word"]:
-                wordle_data["letters_not_in_word"] += char
+            if status == "A":
+                # For an amber, allow additional occurrences beyond those already placed in known_letters.
+                count_known = wordle_data["known_letters"].upper().count(char)
+                count_unlocated = wordle_data["unlocated_letters_in_word"].upper().count(char)
+                # If there are more 'A' statuses than what is already known, add one occurrence.
+                if count_unlocated < a_counts[char] - count_known:
+                    wordle_data["unlocated_letters_in_word"] += char
+            elif status == "X":
+                if char not in wordle_data["letters_not_in_word"]:
+                    wordle_data["letters_not_in_word"] += char
+    # Clean up letters_not_in_word by removing letters present in known or unlocated.
     letters_to_keep = set(wordle_data["known_letters"].replace("-", "")) | set(wordle_data["unlocated_letters_in_word"])
     wordle_data["letters_not_in_word"] = "".join(c for c in wordle_data["letters_not_in_word"] if c not in letters_to_keep)
+    
     with open(wordle_json_name, "w") as file:
         json.dump(wordle_data, file, indent=4)
 
@@ -78,16 +99,10 @@ def load_wordle_inputs(json_file):
 # Candidate Filtering Functions
 ###############################################################################
 def candidates_match_known(word_list: pd.DataFrame, known_letters: str):
-    """
-    Filters words matching the known_letters pattern (using '-' as a wildcard).
-    """
     pattern = known_letters.replace("-", ".")
     return word_list[word_list['WORD'].str.match(pattern, na=False)]
 
 def filter_words_by_exclusions(word_list, exclusions):
-    """
-    Filters words based on position-specific exclusions.
-    """
     def meets_criteria(word):
         for char_set, char in zip(exclusions.values(), word):
             if char.upper() in char_set.upper():
@@ -96,9 +111,6 @@ def filter_words_by_exclusions(word_list, exclusions):
     return word_list[word_list['WORD'].apply(meets_criteria)]
 
 def candidates_all_letters(word_list: pd.DataFrame, known_letters: str, unlocated_letters: str):
-    """
-    Filters words to include all required letters (both known and unlocated).
-    """
     from re import sub
     letters_only = sub('[^A-Za-z]', '', known_letters)
     all_letters = (unlocated_letters + letters_only).upper()
@@ -109,9 +121,6 @@ def candidates_all_letters(word_list: pd.DataFrame, known_letters: str, unlocate
     return word_list[word_list['WORD'].apply(matches_condition)]
 
 def candidates_ex_excluded(word_list: pd.DataFrame, letters_not_in_word: str):
-    """
-    Excludes words containing any letters known not to be in the solution.
-    """
     if word_list.empty:
         return word_list
     excluded_letters = set(letters_not_in_word.upper())
@@ -120,10 +129,6 @@ def candidates_ex_excluded(word_list: pd.DataFrame, letters_not_in_word: str):
     return word_list[word_list['WORD'].apply(does_not_contain)]
 
 def wordle_filter(inputs, word_list: pd.DataFrame):
-    """
-    Applies all filters (known letters, exclusions, required letters, letters not in word)
-    to produce candidate words.
-    """
     known_letters = inputs['known_letters'].upper()
     unlocated_letters = inputs['unlocated_letters_in_word'].upper()
     exclusions = {k: v.upper() for k, v in inputs['exclusions'].items()}
@@ -140,44 +145,26 @@ def wordle_filter(inputs, word_list: pd.DataFrame):
     return candidates
 
 def get_unique_letters(word_list):
-    """
-    Returns a set of unique letters from a list/series of words.
-    """
     all_letters = ''.join(word_list).upper()
     return set(all_letters)
 
 def letters_in_candidates(word_list, inputs):
-    """
-    Returns letters that are still unaccounted for among candidate words.
-    """
     unique_letters = get_unique_letters(word_list['WORD'])
     known_letters = inputs['known_letters'] + inputs['unlocated_letters_in_word']
     return unique_letters.difference(set(known_letters.upper()))
 
 def filter_list_for_chosen_letters(words: pd.DataFrame, required_letters: str) -> pd.DataFrame:
-    """
-    Filters words to include only those that contain all letters in required_letters.
-    """
     required_set = set(required_letters.upper())
     return words[words['WORD'].apply(lambda w: required_set.issubset(set(w.upper())))]
 
 def preprocess_word_list(word_list):
-    """
-    Converts a list of words into a Counter keyed by frozenset(letters) for efficient queries.
-    """
     return Counter(frozenset(word) for word in word_list)
 
 def get_n_letter_combinations(input_string: str, n: int) -> list:
-    """
-    Returns all unique n-letter combinations from the input string.
-    """
     unique_chars = ''.join(dict.fromkeys(input_string.upper()))
     return [''.join(combo) for combo in combinations(unique_chars, n)]
 
 def filter_combos(word_list, combos):
-    """
-    Filters combos to include only those where at least one word contains every letter in the combo.
-    """
     word_sets = [set(word) for word in word_list]
     valid = []
     for combo in combos:
@@ -187,17 +174,9 @@ def filter_combos(word_list, combos):
     return valid
 
 ###############################################################################
-# New Function: Process Binary Combos with Optimised Counting
+# Functions for Candidate Scoring / Guess Evaluation
 ###############################################################################
 def process_binary_combos_with_optimised_counting(filtered_combos, word_list):
-    """
-    For each viable combo, computes match counts for all binary subsets using a preprocessed word dictionary.
-    
-    :param filtered_combos: List of letter combinations (strings) that are valid.
-    :param word_list: List or Series of candidate words.
-    :return: Dictionary where each key is a combo and the value is a list of dicts containing
-             "binary_combo" and "match_count".
-    """
     word_dict = preprocess_word_list(word_list)
     results = {}
     for combo in filtered_combos:
@@ -218,46 +197,21 @@ def process_binary_combos_with_optimised_counting(filtered_combos, word_list):
             })
     return results
 
-def get_max_non_zero_matches(guesses, candidates_df):
-    """
-    For each guess word, generate all (X, A, G) feedback patterns, convert them into constraints,
-    count how many candidate words match those constraints, and return a DataFrame sorted by the
-    smallest maximum matching-word count (ascending).
-    """
-    results = []
-    for guess in guesses:
-        word_length = len(guess)
-        combinations_list = generate_combinations(word_length)
-        remaining_combos = [
-            {"combination": combo, "constraints": map_to_constraints(guess, combo)}
-            for combo in combinations_list
-        ]
-        filtered_combos = fast_count_matching_words(remaining_combos, candidates_df)
-        non_zero_combos = [fc for fc in filtered_combos if fc["matching_words_count"] > 0]
-        if non_zero_combos:
-            max_count = max(nz["matching_words_count"] for nz in non_zero_combos)
-        else:
-            max_count = 0
-        results.append({
-            "Guess": guess,
-            "Max Matching Words Count": max_count
-        })
-    results_df = pd.DataFrame(results)
-    results_df.sort_values(by="Max Matching Words Count", ascending=True, inplace=True)
-    results_df.reset_index(drop=True, inplace=True)
-    return results_df
+def find_lowest_non_zero_max(results):
+    lowest_max = float('inf')
+    best_combo = None
+    for combo, binary_results in results.items():
+        max_count = max(r['match_count'] for r in binary_results)
+        if 0 < max_count < lowest_max:
+            lowest_max = max_count
+            best_combo = combo
+    return best_combo, lowest_max
 
 def generate_combinations(word_length):
-    """
-    Generates all possible (X, A, G) feedback patterns for a word of given length.
-    """
     states = ['X', 'A', 'G']
     return list(product(states, repeat=word_length))
 
 def map_to_constraints(guess, combination):
-    """
-    Maps a guess and its feedback combination to a constraints dictionary.
-    """
     guess = guess.lower()
     constraints = {
         "In": set(),
@@ -279,9 +233,6 @@ def map_to_constraints(guess, combination):
     return constraints
 
 def preprocess_candidates(candidates):
-    """
-    Creates index structures for faster filtering of candidate words.
-    """
     if isinstance(candidates, (list, pd.Series)):
         candidates_df = pd.DataFrame({"WORD": candidates})
     elif isinstance(candidates, pd.DataFrame):
@@ -300,9 +251,6 @@ def preprocess_candidates(candidates):
     return letter_index, position_index
 
 def fast_count_matching_words(remaining_combos, candidates):
-    """
-    For each combination in remaining_combos, quickly counts how many candidate words match its constraints.
-    """
     letter_index, position_index = preprocess_candidates(candidates)
     results = []
     all_words = set(candidates["WORD"].str.lower())
@@ -329,11 +277,31 @@ def fast_count_matching_words(remaining_combos, candidates):
         })
     return results
 
+def get_max_non_zero_matches(guesses, candidates_df):
+    results = []
+    for guess in guesses:
+        word_length = len(guess)
+        combinations_list = generate_combinations(word_length)
+        remaining_combos = [
+            {"combination": combo, "constraints": map_to_constraints(guess, combo)}
+            for combo in combinations_list
+        ]
+        filtered_combos = fast_count_matching_words(remaining_combos, candidates_df)
+        non_zero_combos = [fc for fc in filtered_combos if fc["matching_words_count"] > 0]
+        if non_zero_combos:
+            max_count = max(nz["matching_words_count"] for nz in non_zero_combos)
+        else:
+            max_count = 0
+        results.append({
+            "Guess": guess,
+            "Max Matching Words Count": max_count
+        })
+    results_df = pd.DataFrame(results)
+    results_df.sort_values(by="Max Matching Words Count", ascending=True, inplace=True)
+    results_df.reset_index(drop=True, inplace=True)
+    return results_df
+
 def word_count_for_each_letter_left(letters, word_list):
-    """
-    Given a set of letters and a list/series of words, returns a DataFrame with the count
-    and percentage of words containing each letter.
-    """
     num_words = word_list.count()
     letter_counts = {letter: sum(letter in word for word in word_list) for letter in letters}
     df = pd.DataFrame(list(letter_counts.items()), columns=["Letter", "Count"]).sort_values("Count", ascending=False)
@@ -348,19 +316,3 @@ def get_last_modified_timestamp(script_path):
     except:
         timestamp = datetime.fromtimestamp(os.path.getmtime(script_path)).strftime("%d/%m/%y %H:%M")
     return timestamp
-
-def find_lowest_non_zero_max(results):
-    """
-    Finds the combo whose maximum match_count (across its binary subsets) is the smallest non-zero value.
-    
-    :param results: A dictionary {combo: [ {binary_combo, match_count}, ... ] }
-    :return: (best_combo, lowest_non_zero_max)
-    """
-    lowest_max = float('inf')
-    best_combo = None
-    for combo, binary_results in results.items():
-        max_count = max(r['match_count'] for r in binary_results)
-        if 0 < max_count < lowest_max:
-            lowest_max = max_count
-            best_combo = combo
-    return best_combo, lowest_max
