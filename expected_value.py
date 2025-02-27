@@ -1,26 +1,36 @@
 import pandas as pd
 import numpy as np
 from collections import defaultdict, Counter
+from functools import lru_cache
+import time
 
+@lru_cache(maxsize=1024)
 def generate_wordle_feedback(guess, candidate):
     """
-    Simulates Wordle feedback for a given guess and candidate.
-    Handles duplicate letters correctly.
+    Simulates Wordle feedback with better efficiency using Counter.
+    Cached for performance when called with the same parameters repeatedly.
     """
     guess = guess.lower()
     candidate = candidate.lower()
     feedback = ['X'] * 5
-    candidate_counts = Counter(candidate)
+    
+    # First identify all greens
     for i in range(5):
         if guess[i] == candidate[i]:
             feedback[i] = 'G'
-            candidate_counts[guess[i]] -= 1
+    
+    # Track remaining letters in the candidate
+    remaining_letters = Counter(candidate)
     for i in range(5):
         if feedback[i] == 'G':
-            continue
-        if guess[i] in candidate_counts and candidate_counts[guess[i]] > 0:
+            remaining_letters[guess[i]] -= 1
+    
+    # Now check for yellows (ambers)
+    for i in range(5):
+        if feedback[i] != 'G' and guess[i] in remaining_letters and remaining_letters[guess[i]] > 0:
             feedback[i] = 'A'
-            candidate_counts[guess[i]] -= 1
+            remaining_letters[guess[i]] -= 1
+    
     return "".join(feedback)
 
 def apply_updated_criteria(guess, pattern, candidates):
@@ -97,34 +107,18 @@ def evaluate_guess_candidates(guess, candidates):
     std_dev = results_df["Remaining Candidates"].std()
     return results_df, median_candidates_left, expected_candidates_left, worst_case_candidates_left, percentiles, std_dev
 
-def summarize_all_candidates(candidates):
+def summarize_candidates(candidates, words_to_evaluate=None):
     """
-    Evaluates every candidate word and returns a summary DataFrame.
-    """
-    candidates_copy = candidates.copy()
-    candidates_copy["WORD"] = candidates_copy["WORD"].str.lower()
-    summary_results = []
-    for guess in candidates_copy["WORD"]:
-        _, median, expected, worst_case, percentiles, _ = evaluate_guess_candidates(guess, candidates_copy)
-        summary_results.append({
-            "Word": guess,
-            "Max": worst_case,
-            "Expected": expected,
-            "Median": median,
-            "25th Perc": percentiles["25th Percentile"],
-            "75th Perc": percentiles["75th Percentile"]
-        })
-    return pd.DataFrame(summary_results).sort_values(by="Expected", ascending=True)
-
-def summarize_all_candidates_from_wordlist(candidates, words_to_evaluate):
-    """
-    Evaluates selected words from the candidate list and returns a summary DataFrame.
+    Evaluates words and returns a sorted DataFrame of evaluation metrics.
+    If words_to_evaluate is None, evaluates all candidate words.
     """
     candidates_copy = candidates.copy()
     candidates_copy["WORD"] = candidates_copy["WORD"].str.lower()
-    summary_results = []
+    
     if words_to_evaluate is None:
         words_to_evaluate = candidates_copy["WORD"]
+        
+    summary_results = []
     for guess in words_to_evaluate:
         _, median, expected, worst_case, percentiles, _ = evaluate_guess_candidates(guess, candidates_copy)
         summary_results.append({
@@ -136,3 +130,47 @@ def summarize_all_candidates_from_wordlist(candidates, words_to_evaluate):
             "75th Perc": percentiles["75th Percentile"]
         })
     return pd.DataFrame(summary_results).sort_values(by="Expected", ascending=True)
+
+def perform_max_analysis(guesses, candidates):
+    """
+    Performs Max Analysis on candidate guesses.
+    Uses wordle_functions.get_max_non_zero_matches but handles timing.
+    
+    Returns:
+        tuple: (results_df, elapsed_time, per_word_time)
+    """
+    import wordle_functions as wdl
+    
+    start_time = time.time()
+    results_df = wdl.get_max_non_zero_matches(guesses, candidates)
+    elapsed = time.time() - start_time
+    per_word = elapsed / len(guesses) if len(guesses) > 0 else 0
+    
+    return results_df, elapsed, per_word
+
+def perform_full_analysis(guesses, candidates):
+    """
+    Performs Full Analysis (expected value) on candidate guesses.
+    
+    Returns:
+        tuple: (results_df, elapsed_time, per_word_time)
+    """
+    start_time = time.time()
+    results = []
+    
+    for i, word in enumerate(guesses, start=1):
+        _, median, expected, worst_case, perc, _ = evaluate_guess_candidates(word, candidates)
+        results.append({
+            "Word": word, 
+            "Max": worst_case, 
+            "Expected": expected,
+            "Median": median, 
+            "25th Perc": perc["25th Percentile"],
+            "75th Perc": perc["75th Percentile"]
+        })
+    
+    results_df = pd.DataFrame(results).sort_values(by="Expected", ascending=True)
+    elapsed = time.time() - start_time
+    per_word = elapsed / len(guesses) if len(guesses) > 0 else 0
+    
+    return results_df, elapsed, per_word
