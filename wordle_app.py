@@ -8,7 +8,7 @@ import wordle_functions as wdl
 import expected_value as wev
 
 # Version info
-version = "1.8.2"
+version = "1.8.4"
 script_path = os.path.abspath(__file__)
 last_modified = wdl.get_last_modified_timestamp(script_path)
 
@@ -50,6 +50,64 @@ def get_ordinal(n: int) -> str:
     else:
         suffix = {1: "st", 2: "nd", 3: "rd"}.get(n % 10, "th")
     return f"{n}{suffix}"
+
+
+###############################################################################
+# HELPER FUNCTIONS: Workflow shortcuts to jump straight to running analysis
+###############################################################################
+
+def run_max_analysis():
+    """Runs the 'Max Only' analysis on the full candidate list."""
+    guesses = st.session_state.get("guesses")
+    if guesses is None or (hasattr(guesses, "empty") and guesses.empty):
+        st.warning("No words to evaluate.")
+        return
+    status_placeholder = st.empty()
+    status_placeholder.info("Running Max Only Analysis...")
+    start_time = time.time()
+    num_words = len(guesses)
+    guess_score_df = wdl.get_max_non_zero_matches(guesses, st.session_state["candidates"])
+    elapsed = time.time() - start_time
+    per_word = elapsed / num_words if num_words else 0
+    status_placeholder.success(f"Max Analysis completed in {elapsed:.2f}s ({per_word:.4f}s/word).")
+    st.session_state["summary_df"] = guess_score_df
+    update_sidebar()
+
+def run_full_analysis():
+    """Runs the 'Full Analysis' on the full candidate list."""
+    guesses = st.session_state.get("guesses")
+    if guesses is None or (hasattr(guesses, "empty") and guesses.empty):
+        st.warning("No words to evaluate.")
+        return
+    status_placeholder = st.empty()
+    status_placeholder.info("Running Full Analysis...")
+    start_time = time.time()
+    num_words = len(guesses)
+    results = []
+    for i, word in enumerate(guesses, start=1):
+        _, median, expected, worst_case, perc, _ = wev.evaluate_guess_candidates(word, st.session_state["candidates"])
+        results.append({
+            "Word": word,
+            "Max": worst_case,
+            "Expected": expected,
+            "Median": median,
+            "25th Perc": perc["25th Percentile"],
+            "75th Perc": perc["75th Percentile"]
+        })
+        # Optionally update status every 5 words.
+        if i % 5 == 0 or i == num_words:
+            elapsed = time.time() - start_time
+            per_word = elapsed / i
+            remaining = (num_words - i) * per_word
+            status_placeholder.info(f"{i}/{num_words} processed. Est. {remaining:.0f}s remaining.")
+    summary_df = pd.DataFrame(results).sort_values(by="Expected", ascending=True)
+    elapsed = time.time() - start_time
+    status_placeholder.success(f"Full Analysis completed in {elapsed:.0f}s ({elapsed/num_words:.2f}s/word).")
+    st.session_state["summary_df"] = summary_df
+    update_sidebar()
+
+
+
 
 ###############################################################################
 # STREAMLIT STATE INITIALIZATION
@@ -164,17 +222,57 @@ if submitted:
         st.session_state["default_result"] = "XXXXX"
         st.rerun()
 
+### Print out remaining letters & frequency (Moved to Section 3)
+# if st.session_state["candidates"] is not None:
+#     st.write(f"Number of candidates: {len(st.session_state['candidates'])}")
+#     unguessed = wdl.letters_in_candidates(st.session_state["candidates"], st.session_state["inputs"])
+#     st.write(f"Unguessed letters: {sorted(unguessed)}")
+#     letter_counts_df = wdl.word_count_for_each_letter_left(unguessed, st.session_state["candidates"]['WORD'])
+#     st.dataframe(letter_counts_df)
+
+# Shortcut Buttons for Analysis – only show if candidates have been updated.
 if st.session_state["candidates"] is not None:
+    num_candidates = len(st.session_state["candidates"])
     st.write(f"Number of candidates: {len(st.session_state['candidates'])}")
-    unguessed = wdl.letters_in_candidates(st.session_state["candidates"], st.session_state["inputs"])
-    st.write(f"Unguessed letters: {sorted(unguessed)}")
-    letter_counts_df = wdl.word_count_for_each_letter_left(unguessed, st.session_state["candidates"]['WORD'])
-    st.dataframe(letter_counts_df)
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        if st.button("Shortcut: Run Full Analysis on All Candidates"):
+            st.session_state["guesses"] = st.session_state["candidates"]["WORD"]
+            st.session_state["analysis_choice"] = "Full Analysis"  # Set analysis mode
+            run_full_analysis()
+    
+    with col2: 
+        if st.button("Shortcut: Run Max Analysis on All Candidates"):
+            st.session_state["guesses"] = st.session_state["candidates"]["WORD"]
+            st.session_state["analysis_choice"] = "Max Only"  # Set analysis mode
+            run_max_analysis()
+
+    # Both buttons will use the full candidate list.
+    # if num_candidates < 150:
+    #     if st.button("Shortcut: Run Full Analysis on All Candidates"):
+    #         st.session_state["guesses"] = st.session_state["candidates"]["WORD"]
+    #         run_full_analysis()
+    #     if st.button("Shortcut: Run Max Analysis on All Candidates"):
+    #         st.session_state["guesses"] = st.session_state["candidates"]["WORD"]
+    #         run_max_analysis()
+    # elif num_candidates < 400:
+    #     if st.button("Shortcut: Run Max Analysis on All Candidates"):
+    #         st.session_state["guesses"] = st.session_state["candidates"]["WORD"]
+    #         run_max_analysis()
 
 ##########################
 # SECTION 3: IDENTIFY WORDS FOR EVALUATION
 ##########################
 st.header("3) Identify Words for Evaluation")
+
+# PRINT OUT REMAINING LETTERS & FREQUENCY (Moved from Section 2)
+if st.session_state["candidates"] is not None:  
+    unguessed = wdl.letters_in_candidates(st.session_state["candidates"], st.session_state["inputs"])
+    st.write(f"Unguessed letters: {sorted(unguessed)}")
+    letter_counts_df = wdl.word_count_for_each_letter_left(unguessed, st.session_state["candidates"]['WORD'])
+    st.dataframe(letter_counts_df)
 
 st.session_state["restrict_to_candidates"] = st.checkbox(
     "Restrict next guess to candidates only?",
@@ -240,7 +338,19 @@ if st.button("Identify Words"):
 # SECTION 4: EVALUATE WORDS
 ##########################
 st.header("4) Evaluate Words")
-analysis_choice = st.radio("Choose Analysis Type:", ["Max Only", "Full Analysis"])
+
+# Initialize if needed
+if "analysis_choice" not in st.session_state:
+    st.session_state["analysis_choice"] = "Max Only"
+
+# Determine default index based on session state:
+default_index = 0 if st.session_state["analysis_choice"] == "Max Only" else 1
+
+analysis_choice = st.radio("Choose Analysis Type:", 
+                           ["Max Only", "Full Analysis"], 
+                           index=default_index,
+                           key="analysis_choice")
+
 if st.button("Run Analysis"):
     guesses = st.session_state.get("guesses")
     if guesses is None or (hasattr(guesses, "empty") and guesses.empty):
