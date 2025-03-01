@@ -1,0 +1,3647 @@
+{
+    "XXXXX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-----",
+        "unlocated_letters_in_word": "",
+        "letters_not_in_word": "AIDER",
+        "previous_guesses": [
+            "AIDER XXXXX"
+        ]
+    },
+    "XXXXA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-----",
+        "unlocated_letters_in_word": "R",
+        "letters_not_in_word": "AIDE",
+        "previous_guesses": [
+            "AIDER XXXXA"
+        ]
+    },
+    "XXXXG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "----R",
+        "unlocated_letters_in_word": "",
+        "letters_not_in_word": "AIDE",
+        "previous_guesses": [
+            "AIDER XXXXG"
+        ]
+    },
+    "XXXAX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-----",
+        "unlocated_letters_in_word": "E",
+        "letters_not_in_word": "AIDR",
+        "previous_guesses": [
+            "AIDER XXXAX"
+        ]
+    },
+    "XXXAA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-----",
+        "unlocated_letters_in_word": "ER",
+        "letters_not_in_word": "AID",
+        "previous_guesses": [
+            "AIDER XXXAA"
+        ]
+    },
+    "XXXAG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "----R",
+        "unlocated_letters_in_word": "E",
+        "letters_not_in_word": "AID",
+        "previous_guesses": [
+            "AIDER XXXAG"
+        ]
+    },
+    "XXXGX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "---E-",
+        "unlocated_letters_in_word": "",
+        "letters_not_in_word": "AIDR",
+        "previous_guesses": [
+            "AIDER XXXGX"
+        ]
+    },
+    "XXXGA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "---E-",
+        "unlocated_letters_in_word": "R",
+        "letters_not_in_word": "AID",
+        "previous_guesses": [
+            "AIDER XXXGA"
+        ]
+    },
+    "XXXGG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": ""
+        },
+        "known_letters": "---ER",
+        "unlocated_letters_in_word": "",
+        "letters_not_in_word": "AID",
+        "previous_guesses": [
+            "AIDER XXXGG"
+        ]
+    },
+    "XXAXX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-----",
+        "unlocated_letters_in_word": "D",
+        "letters_not_in_word": "AIER",
+        "previous_guesses": [
+            "AIDER XXAXX"
+        ]
+    },
+    "XXAXA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-----",
+        "unlocated_letters_in_word": "DR",
+        "letters_not_in_word": "AIE",
+        "previous_guesses": [
+            "AIDER XXAXA"
+        ]
+    },
+    "XXAXG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "----R",
+        "unlocated_letters_in_word": "D",
+        "letters_not_in_word": "AIE",
+        "previous_guesses": [
+            "AIDER XXAXG"
+        ]
+    },
+    "XXAAX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-----",
+        "unlocated_letters_in_word": "DE",
+        "letters_not_in_word": "AIR",
+        "previous_guesses": [
+            "AIDER XXAAX"
+        ]
+    },
+    "XXAAA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-----",
+        "unlocated_letters_in_word": "DER",
+        "letters_not_in_word": "AI",
+        "previous_guesses": [
+            "AIDER XXAAA"
+        ]
+    },
+    "XXAAG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "----R",
+        "unlocated_letters_in_word": "DE",
+        "letters_not_in_word": "AI",
+        "previous_guesses": [
+            "AIDER XXAAG"
+        ]
+    },
+    "XXAGX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "---E-",
+        "unlocated_letters_in_word": "D",
+        "letters_not_in_word": "AIR",
+        "previous_guesses": [
+            "AIDER XXAGX"
+        ]
+    },
+    "XXAGA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "---E-",
+        "unlocated_letters_in_word": "DR",
+        "letters_not_in_word": "AI",
+        "previous_guesses": [
+            "AIDER XXAGA"
+        ]
+    },
+    "XXAGG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": ""
+        },
+        "known_letters": "---ER",
+        "unlocated_letters_in_word": "D",
+        "letters_not_in_word": "AI",
+        "previous_guesses": [
+            "AIDER XXAGG"
+        ]
+    },
+    "XXGXX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "--D--",
+        "unlocated_letters_in_word": "",
+        "letters_not_in_word": "AIER",
+        "previous_guesses": [
+            "AIDER XXGXX"
+        ]
+    },
+    "XXGXA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "--D--",
+        "unlocated_letters_in_word": "R",
+        "letters_not_in_word": "AIE",
+        "previous_guesses": [
+            "AIDER XXGXA"
+        ]
+    },
+    "XXGXG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "--D-R",
+        "unlocated_letters_in_word": "",
+        "letters_not_in_word": "AIE",
+        "previous_guesses": [
+            "AIDER XXGXG"
+        ]
+    },
+    "XXGAX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "--D--",
+        "unlocated_letters_in_word": "E",
+        "letters_not_in_word": "AIR",
+        "previous_guesses": [
+            "AIDER XXGAX"
+        ]
+    },
+    "XXGAA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "--D--",
+        "unlocated_letters_in_word": "ER",
+        "letters_not_in_word": "AI",
+        "previous_guesses": [
+            "AIDER XXGAA"
+        ]
+    },
+    "XXGAG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "--D-R",
+        "unlocated_letters_in_word": "E",
+        "letters_not_in_word": "AI",
+        "previous_guesses": [
+            "AIDER XXGAG"
+        ]
+    },
+    "XXGGX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "--DE-",
+        "unlocated_letters_in_word": "",
+        "letters_not_in_word": "AIR",
+        "previous_guesses": [
+            "AIDER XXGGX"
+        ]
+    },
+    "XXGGA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "--DE-",
+        "unlocated_letters_in_word": "R",
+        "letters_not_in_word": "AI",
+        "previous_guesses": [
+            "AIDER XXGGA"
+        ]
+    },
+    "XXGGG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "",
+            "5th char": ""
+        },
+        "known_letters": "--DER",
+        "unlocated_letters_in_word": "",
+        "letters_not_in_word": "AI",
+        "previous_guesses": [
+            "AIDER XXGGG"
+        ]
+    },
+    "XAXXX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-----",
+        "unlocated_letters_in_word": "I",
+        "letters_not_in_word": "ADER",
+        "previous_guesses": [
+            "AIDER XAXXX"
+        ]
+    },
+    "XAXXA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-----",
+        "unlocated_letters_in_word": "IR",
+        "letters_not_in_word": "ADE",
+        "previous_guesses": [
+            "AIDER XAXXA"
+        ]
+    },
+    "XAXXG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "----R",
+        "unlocated_letters_in_word": "I",
+        "letters_not_in_word": "ADE",
+        "previous_guesses": [
+            "AIDER XAXXG"
+        ]
+    },
+    "XAXAX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-----",
+        "unlocated_letters_in_word": "IE",
+        "letters_not_in_word": "ADR",
+        "previous_guesses": [
+            "AIDER XAXAX"
+        ]
+    },
+    "XAXAA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-----",
+        "unlocated_letters_in_word": "IER",
+        "letters_not_in_word": "AD",
+        "previous_guesses": [
+            "AIDER XAXAA"
+        ]
+    },
+    "XAXAG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "----R",
+        "unlocated_letters_in_word": "IE",
+        "letters_not_in_word": "AD",
+        "previous_guesses": [
+            "AIDER XAXAG"
+        ]
+    },
+    "XAXGX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "---E-",
+        "unlocated_letters_in_word": "I",
+        "letters_not_in_word": "ADR",
+        "previous_guesses": [
+            "AIDER XAXGX"
+        ]
+    },
+    "XAXGA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "---E-",
+        "unlocated_letters_in_word": "IR",
+        "letters_not_in_word": "AD",
+        "previous_guesses": [
+            "AIDER XAXGA"
+        ]
+    },
+    "XAXGG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": ""
+        },
+        "known_letters": "---ER",
+        "unlocated_letters_in_word": "I",
+        "letters_not_in_word": "AD",
+        "previous_guesses": [
+            "AIDER XAXGG"
+        ]
+    },
+    "XAAXX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-----",
+        "unlocated_letters_in_word": "ID",
+        "letters_not_in_word": "AER",
+        "previous_guesses": [
+            "AIDER XAAXX"
+        ]
+    },
+    "XAAXA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-----",
+        "unlocated_letters_in_word": "IDR",
+        "letters_not_in_word": "AE",
+        "previous_guesses": [
+            "AIDER XAAXA"
+        ]
+    },
+    "XAAXG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "----R",
+        "unlocated_letters_in_word": "ID",
+        "letters_not_in_word": "AE",
+        "previous_guesses": [
+            "AIDER XAAXG"
+        ]
+    },
+    "XAAAX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-----",
+        "unlocated_letters_in_word": "IDE",
+        "letters_not_in_word": "AR",
+        "previous_guesses": [
+            "AIDER XAAAX"
+        ]
+    },
+    "XAAAA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-----",
+        "unlocated_letters_in_word": "IDER",
+        "letters_not_in_word": "A",
+        "previous_guesses": [
+            "AIDER XAAAA"
+        ]
+    },
+    "XAAAG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "----R",
+        "unlocated_letters_in_word": "IDE",
+        "letters_not_in_word": "A",
+        "previous_guesses": [
+            "AIDER XAAAG"
+        ]
+    },
+    "XAAGX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "---E-",
+        "unlocated_letters_in_word": "ID",
+        "letters_not_in_word": "AR",
+        "previous_guesses": [
+            "AIDER XAAGX"
+        ]
+    },
+    "XAAGA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "---E-",
+        "unlocated_letters_in_word": "IDR",
+        "letters_not_in_word": "A",
+        "previous_guesses": [
+            "AIDER XAAGA"
+        ]
+    },
+    "XAAGG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": ""
+        },
+        "known_letters": "---ER",
+        "unlocated_letters_in_word": "ID",
+        "letters_not_in_word": "A",
+        "previous_guesses": [
+            "AIDER XAAGG"
+        ]
+    },
+    "XAGXX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "--D--",
+        "unlocated_letters_in_word": "I",
+        "letters_not_in_word": "AER",
+        "previous_guesses": [
+            "AIDER XAGXX"
+        ]
+    },
+    "XAGXA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "--D--",
+        "unlocated_letters_in_word": "IR",
+        "letters_not_in_word": "AE",
+        "previous_guesses": [
+            "AIDER XAGXA"
+        ]
+    },
+    "XAGXG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "--D-R",
+        "unlocated_letters_in_word": "I",
+        "letters_not_in_word": "AE",
+        "previous_guesses": [
+            "AIDER XAGXG"
+        ]
+    },
+    "XAGAX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "--D--",
+        "unlocated_letters_in_word": "IE",
+        "letters_not_in_word": "AR",
+        "previous_guesses": [
+            "AIDER XAGAX"
+        ]
+    },
+    "XAGAA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "--D--",
+        "unlocated_letters_in_word": "IER",
+        "letters_not_in_word": "A",
+        "previous_guesses": [
+            "AIDER XAGAA"
+        ]
+    },
+    "XAGAG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "--D-R",
+        "unlocated_letters_in_word": "IE",
+        "letters_not_in_word": "A",
+        "previous_guesses": [
+            "AIDER XAGAG"
+        ]
+    },
+    "XAGGX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "--DE-",
+        "unlocated_letters_in_word": "I",
+        "letters_not_in_word": "AR",
+        "previous_guesses": [
+            "AIDER XAGGX"
+        ]
+    },
+    "XAGGA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "--DE-",
+        "unlocated_letters_in_word": "IR",
+        "letters_not_in_word": "A",
+        "previous_guesses": [
+            "AIDER XAGGA"
+        ]
+    },
+    "XAGGG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "",
+            "5th char": ""
+        },
+        "known_letters": "--DER",
+        "unlocated_letters_in_word": "I",
+        "letters_not_in_word": "A",
+        "previous_guesses": [
+            "AIDER XAGGG"
+        ]
+    },
+    "XGXXX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-I---",
+        "unlocated_letters_in_word": "",
+        "letters_not_in_word": "ADER",
+        "previous_guesses": [
+            "AIDER XGXXX"
+        ]
+    },
+    "XGXXA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-I---",
+        "unlocated_letters_in_word": "R",
+        "letters_not_in_word": "ADE",
+        "previous_guesses": [
+            "AIDER XGXXA"
+        ]
+    },
+    "XGXXG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "-I--R",
+        "unlocated_letters_in_word": "",
+        "letters_not_in_word": "ADE",
+        "previous_guesses": [
+            "AIDER XGXXG"
+        ]
+    },
+    "XGXAX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-I---",
+        "unlocated_letters_in_word": "E",
+        "letters_not_in_word": "ADR",
+        "previous_guesses": [
+            "AIDER XGXAX"
+        ]
+    },
+    "XGXAA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-I---",
+        "unlocated_letters_in_word": "ER",
+        "letters_not_in_word": "AD",
+        "previous_guesses": [
+            "AIDER XGXAA"
+        ]
+    },
+    "XGXAG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "-I--R",
+        "unlocated_letters_in_word": "E",
+        "letters_not_in_word": "AD",
+        "previous_guesses": [
+            "AIDER XGXAG"
+        ]
+    },
+    "XGXGX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "-I-E-",
+        "unlocated_letters_in_word": "",
+        "letters_not_in_word": "ADR",
+        "previous_guesses": [
+            "AIDER XGXGX"
+        ]
+    },
+    "XGXGA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "-I-E-",
+        "unlocated_letters_in_word": "R",
+        "letters_not_in_word": "AD",
+        "previous_guesses": [
+            "AIDER XGXGA"
+        ]
+    },
+    "XGXGG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": ""
+        },
+        "known_letters": "-I-ER",
+        "unlocated_letters_in_word": "",
+        "letters_not_in_word": "AD",
+        "previous_guesses": [
+            "AIDER XGXGG"
+        ]
+    },
+    "XGAXX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-I---",
+        "unlocated_letters_in_word": "D",
+        "letters_not_in_word": "AER",
+        "previous_guesses": [
+            "AIDER XGAXX"
+        ]
+    },
+    "XGAXA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-I---",
+        "unlocated_letters_in_word": "DR",
+        "letters_not_in_word": "AE",
+        "previous_guesses": [
+            "AIDER XGAXA"
+        ]
+    },
+    "XGAXG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "-I--R",
+        "unlocated_letters_in_word": "D",
+        "letters_not_in_word": "AE",
+        "previous_guesses": [
+            "AIDER XGAXG"
+        ]
+    },
+    "XGAAX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-I---",
+        "unlocated_letters_in_word": "DE",
+        "letters_not_in_word": "AR",
+        "previous_guesses": [
+            "AIDER XGAAX"
+        ]
+    },
+    "XGAAA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-I---",
+        "unlocated_letters_in_word": "DER",
+        "letters_not_in_word": "A",
+        "previous_guesses": [
+            "AIDER XGAAA"
+        ]
+    },
+    "XGAAG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "-I--R",
+        "unlocated_letters_in_word": "DE",
+        "letters_not_in_word": "A",
+        "previous_guesses": [
+            "AIDER XGAAG"
+        ]
+    },
+    "XGAGX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "-I-E-",
+        "unlocated_letters_in_word": "D",
+        "letters_not_in_word": "AR",
+        "previous_guesses": [
+            "AIDER XGAGX"
+        ]
+    },
+    "XGAGA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "-I-E-",
+        "unlocated_letters_in_word": "DR",
+        "letters_not_in_word": "A",
+        "previous_guesses": [
+            "AIDER XGAGA"
+        ]
+    },
+    "XGAGG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": ""
+        },
+        "known_letters": "-I-ER",
+        "unlocated_letters_in_word": "D",
+        "letters_not_in_word": "A",
+        "previous_guesses": [
+            "AIDER XGAGG"
+        ]
+    },
+    "XGGXX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-ID--",
+        "unlocated_letters_in_word": "",
+        "letters_not_in_word": "AER",
+        "previous_guesses": [
+            "AIDER XGGXX"
+        ]
+    },
+    "XGGXA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-ID--",
+        "unlocated_letters_in_word": "R",
+        "letters_not_in_word": "AE",
+        "previous_guesses": [
+            "AIDER XGGXA"
+        ]
+    },
+    "XGGXG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "-ID-R",
+        "unlocated_letters_in_word": "",
+        "letters_not_in_word": "AE",
+        "previous_guesses": [
+            "AIDER XGGXG"
+        ]
+    },
+    "XGGAX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-ID--",
+        "unlocated_letters_in_word": "E",
+        "letters_not_in_word": "AR",
+        "previous_guesses": [
+            "AIDER XGGAX"
+        ]
+    },
+    "XGGAA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-ID--",
+        "unlocated_letters_in_word": "ER",
+        "letters_not_in_word": "A",
+        "previous_guesses": [
+            "AIDER XGGAA"
+        ]
+    },
+    "XGGAG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "-ID-R",
+        "unlocated_letters_in_word": "E",
+        "letters_not_in_word": "A",
+        "previous_guesses": [
+            "AIDER XGGAG"
+        ]
+    },
+    "XGGGX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "-IDE-",
+        "unlocated_letters_in_word": "",
+        "letters_not_in_word": "AR",
+        "previous_guesses": [
+            "AIDER XGGGX"
+        ]
+    },
+    "XGGGA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "-IDE-",
+        "unlocated_letters_in_word": "R",
+        "letters_not_in_word": "A",
+        "previous_guesses": [
+            "AIDER XGGGA"
+        ]
+    },
+    "XGGGG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "",
+            "4th char": "",
+            "5th char": ""
+        },
+        "known_letters": "-IDER",
+        "unlocated_letters_in_word": "",
+        "letters_not_in_word": "A",
+        "previous_guesses": [
+            "AIDER XGGGG"
+        ]
+    },
+    "AXXXX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-----",
+        "unlocated_letters_in_word": "A",
+        "letters_not_in_word": "IDER",
+        "previous_guesses": [
+            "AIDER AXXXX"
+        ]
+    },
+    "AXXXA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-----",
+        "unlocated_letters_in_word": "AR",
+        "letters_not_in_word": "IDE",
+        "previous_guesses": [
+            "AIDER AXXXA"
+        ]
+    },
+    "AXXXG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "----R",
+        "unlocated_letters_in_word": "A",
+        "letters_not_in_word": "IDE",
+        "previous_guesses": [
+            "AIDER AXXXG"
+        ]
+    },
+    "AXXAX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-----",
+        "unlocated_letters_in_word": "AE",
+        "letters_not_in_word": "IDR",
+        "previous_guesses": [
+            "AIDER AXXAX"
+        ]
+    },
+    "AXXAA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-----",
+        "unlocated_letters_in_word": "AER",
+        "letters_not_in_word": "ID",
+        "previous_guesses": [
+            "AIDER AXXAA"
+        ]
+    },
+    "AXXAG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "----R",
+        "unlocated_letters_in_word": "AE",
+        "letters_not_in_word": "ID",
+        "previous_guesses": [
+            "AIDER AXXAG"
+        ]
+    },
+    "AXXGX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "---E-",
+        "unlocated_letters_in_word": "A",
+        "letters_not_in_word": "IDR",
+        "previous_guesses": [
+            "AIDER AXXGX"
+        ]
+    },
+    "AXXGA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "---E-",
+        "unlocated_letters_in_word": "AR",
+        "letters_not_in_word": "ID",
+        "previous_guesses": [
+            "AIDER AXXGA"
+        ]
+    },
+    "AXXGG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": ""
+        },
+        "known_letters": "---ER",
+        "unlocated_letters_in_word": "A",
+        "letters_not_in_word": "ID",
+        "previous_guesses": [
+            "AIDER AXXGG"
+        ]
+    },
+    "AXAXX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-----",
+        "unlocated_letters_in_word": "AD",
+        "letters_not_in_word": "IER",
+        "previous_guesses": [
+            "AIDER AXAXX"
+        ]
+    },
+    "AXAXA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-----",
+        "unlocated_letters_in_word": "ADR",
+        "letters_not_in_word": "IE",
+        "previous_guesses": [
+            "AIDER AXAXA"
+        ]
+    },
+    "AXAXG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "----R",
+        "unlocated_letters_in_word": "AD",
+        "letters_not_in_word": "IE",
+        "previous_guesses": [
+            "AIDER AXAXG"
+        ]
+    },
+    "AXAAX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-----",
+        "unlocated_letters_in_word": "ADE",
+        "letters_not_in_word": "IR",
+        "previous_guesses": [
+            "AIDER AXAAX"
+        ]
+    },
+    "AXAAA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-----",
+        "unlocated_letters_in_word": "ADER",
+        "letters_not_in_word": "I",
+        "previous_guesses": [
+            "AIDER AXAAA"
+        ]
+    },
+    "AXAAG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "----R",
+        "unlocated_letters_in_word": "ADE",
+        "letters_not_in_word": "I",
+        "previous_guesses": [
+            "AIDER AXAAG"
+        ]
+    },
+    "AXAGX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "---E-",
+        "unlocated_letters_in_word": "AD",
+        "letters_not_in_word": "IR",
+        "previous_guesses": [
+            "AIDER AXAGX"
+        ]
+    },
+    "AXAGA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "---E-",
+        "unlocated_letters_in_word": "ADR",
+        "letters_not_in_word": "I",
+        "previous_guesses": [
+            "AIDER AXAGA"
+        ]
+    },
+    "AXAGG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": ""
+        },
+        "known_letters": "---ER",
+        "unlocated_letters_in_word": "AD",
+        "letters_not_in_word": "I",
+        "previous_guesses": [
+            "AIDER AXAGG"
+        ]
+    },
+    "AXGXX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "--D--",
+        "unlocated_letters_in_word": "A",
+        "letters_not_in_word": "IER",
+        "previous_guesses": [
+            "AIDER AXGXX"
+        ]
+    },
+    "AXGXA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "--D--",
+        "unlocated_letters_in_word": "AR",
+        "letters_not_in_word": "IE",
+        "previous_guesses": [
+            "AIDER AXGXA"
+        ]
+    },
+    "AXGXG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "--D-R",
+        "unlocated_letters_in_word": "A",
+        "letters_not_in_word": "IE",
+        "previous_guesses": [
+            "AIDER AXGXG"
+        ]
+    },
+    "AXGAX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "--D--",
+        "unlocated_letters_in_word": "AE",
+        "letters_not_in_word": "IR",
+        "previous_guesses": [
+            "AIDER AXGAX"
+        ]
+    },
+    "AXGAA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "--D--",
+        "unlocated_letters_in_word": "AER",
+        "letters_not_in_word": "I",
+        "previous_guesses": [
+            "AIDER AXGAA"
+        ]
+    },
+    "AXGAG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "--D-R",
+        "unlocated_letters_in_word": "AE",
+        "letters_not_in_word": "I",
+        "previous_guesses": [
+            "AIDER AXGAG"
+        ]
+    },
+    "AXGGX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "--DE-",
+        "unlocated_letters_in_word": "A",
+        "letters_not_in_word": "IR",
+        "previous_guesses": [
+            "AIDER AXGGX"
+        ]
+    },
+    "AXGGA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "--DE-",
+        "unlocated_letters_in_word": "AR",
+        "letters_not_in_word": "I",
+        "previous_guesses": [
+            "AIDER AXGGA"
+        ]
+    },
+    "AXGGG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "",
+            "5th char": ""
+        },
+        "known_letters": "--DER",
+        "unlocated_letters_in_word": "A",
+        "letters_not_in_word": "I",
+        "previous_guesses": [
+            "AIDER AXGGG"
+        ]
+    },
+    "AAXXX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-----",
+        "unlocated_letters_in_word": "AI",
+        "letters_not_in_word": "DER",
+        "previous_guesses": [
+            "AIDER AAXXX"
+        ]
+    },
+    "AAXXA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-----",
+        "unlocated_letters_in_word": "AIR",
+        "letters_not_in_word": "DE",
+        "previous_guesses": [
+            "AIDER AAXXA"
+        ]
+    },
+    "AAXXG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "----R",
+        "unlocated_letters_in_word": "AI",
+        "letters_not_in_word": "DE",
+        "previous_guesses": [
+            "AIDER AAXXG"
+        ]
+    },
+    "AAXAX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-----",
+        "unlocated_letters_in_word": "AIE",
+        "letters_not_in_word": "DR",
+        "previous_guesses": [
+            "AIDER AAXAX"
+        ]
+    },
+    "AAXAA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-----",
+        "unlocated_letters_in_word": "AIER",
+        "letters_not_in_word": "D",
+        "previous_guesses": [
+            "AIDER AAXAA"
+        ]
+    },
+    "AAXAG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "----R",
+        "unlocated_letters_in_word": "AIE",
+        "letters_not_in_word": "D",
+        "previous_guesses": [
+            "AIDER AAXAG"
+        ]
+    },
+    "AAXGX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "---E-",
+        "unlocated_letters_in_word": "AI",
+        "letters_not_in_word": "DR",
+        "previous_guesses": [
+            "AIDER AAXGX"
+        ]
+    },
+    "AAXGA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "---E-",
+        "unlocated_letters_in_word": "AIR",
+        "letters_not_in_word": "D",
+        "previous_guesses": [
+            "AIDER AAXGA"
+        ]
+    },
+    "AAXGG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": ""
+        },
+        "known_letters": "---ER",
+        "unlocated_letters_in_word": "AI",
+        "letters_not_in_word": "D",
+        "previous_guesses": [
+            "AIDER AAXGG"
+        ]
+    },
+    "AAAXX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-----",
+        "unlocated_letters_in_word": "AID",
+        "letters_not_in_word": "ER",
+        "previous_guesses": [
+            "AIDER AAAXX"
+        ]
+    },
+    "AAAXA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-----",
+        "unlocated_letters_in_word": "AIDR",
+        "letters_not_in_word": "E",
+        "previous_guesses": [
+            "AIDER AAAXA"
+        ]
+    },
+    "AAAXG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "----R",
+        "unlocated_letters_in_word": "AID",
+        "letters_not_in_word": "E",
+        "previous_guesses": [
+            "AIDER AAAXG"
+        ]
+    },
+    "AAAAX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-----",
+        "unlocated_letters_in_word": "AIDE",
+        "letters_not_in_word": "R",
+        "previous_guesses": [
+            "AIDER AAAAX"
+        ]
+    },
+    "AAAAA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-----",
+        "unlocated_letters_in_word": "AIDER",
+        "letters_not_in_word": "",
+        "previous_guesses": [
+            "AIDER AAAAA"
+        ]
+    },
+    "AAAAG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "----R",
+        "unlocated_letters_in_word": "AIDE",
+        "letters_not_in_word": "",
+        "previous_guesses": [
+            "AIDER AAAAG"
+        ]
+    },
+    "AAAGX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "---E-",
+        "unlocated_letters_in_word": "AID",
+        "letters_not_in_word": "R",
+        "previous_guesses": [
+            "AIDER AAAGX"
+        ]
+    },
+    "AAAGA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "---E-",
+        "unlocated_letters_in_word": "AIDR",
+        "letters_not_in_word": "",
+        "previous_guesses": [
+            "AIDER AAAGA"
+        ]
+    },
+    "AAAGG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": ""
+        },
+        "known_letters": "---ER",
+        "unlocated_letters_in_word": "AID",
+        "letters_not_in_word": "",
+        "previous_guesses": [
+            "AIDER AAAGG"
+        ]
+    },
+    "AAGXX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "--D--",
+        "unlocated_letters_in_word": "AI",
+        "letters_not_in_word": "ER",
+        "previous_guesses": [
+            "AIDER AAGXX"
+        ]
+    },
+    "AAGXA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "--D--",
+        "unlocated_letters_in_word": "AIR",
+        "letters_not_in_word": "E",
+        "previous_guesses": [
+            "AIDER AAGXA"
+        ]
+    },
+    "AAGXG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "--D-R",
+        "unlocated_letters_in_word": "AI",
+        "letters_not_in_word": "E",
+        "previous_guesses": [
+            "AIDER AAGXG"
+        ]
+    },
+    "AAGAX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "--D--",
+        "unlocated_letters_in_word": "AIE",
+        "letters_not_in_word": "R",
+        "previous_guesses": [
+            "AIDER AAGAX"
+        ]
+    },
+    "AAGAA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "--D--",
+        "unlocated_letters_in_word": "AIER",
+        "letters_not_in_word": "",
+        "previous_guesses": [
+            "AIDER AAGAA"
+        ]
+    },
+    "AAGAG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "--D-R",
+        "unlocated_letters_in_word": "AIE",
+        "letters_not_in_word": "",
+        "previous_guesses": [
+            "AIDER AAGAG"
+        ]
+    },
+    "AAGGX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "--DE-",
+        "unlocated_letters_in_word": "AI",
+        "letters_not_in_word": "R",
+        "previous_guesses": [
+            "AIDER AAGGX"
+        ]
+    },
+    "AAGGA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "--DE-",
+        "unlocated_letters_in_word": "AIR",
+        "letters_not_in_word": "",
+        "previous_guesses": [
+            "AIDER AAGGA"
+        ]
+    },
+    "AAGGG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "",
+            "5th char": ""
+        },
+        "known_letters": "--DER",
+        "unlocated_letters_in_word": "AI",
+        "letters_not_in_word": "",
+        "previous_guesses": [
+            "AIDER AAGGG"
+        ]
+    },
+    "AGXXX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-I---",
+        "unlocated_letters_in_word": "A",
+        "letters_not_in_word": "DER",
+        "previous_guesses": [
+            "AIDER AGXXX"
+        ]
+    },
+    "AGXXA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-I---",
+        "unlocated_letters_in_word": "AR",
+        "letters_not_in_word": "DE",
+        "previous_guesses": [
+            "AIDER AGXXA"
+        ]
+    },
+    "AGXXG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "-I--R",
+        "unlocated_letters_in_word": "A",
+        "letters_not_in_word": "DE",
+        "previous_guesses": [
+            "AIDER AGXXG"
+        ]
+    },
+    "AGXAX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-I---",
+        "unlocated_letters_in_word": "AE",
+        "letters_not_in_word": "DR",
+        "previous_guesses": [
+            "AIDER AGXAX"
+        ]
+    },
+    "AGXAA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-I---",
+        "unlocated_letters_in_word": "AER",
+        "letters_not_in_word": "D",
+        "previous_guesses": [
+            "AIDER AGXAA"
+        ]
+    },
+    "AGXAG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "-I--R",
+        "unlocated_letters_in_word": "AE",
+        "letters_not_in_word": "D",
+        "previous_guesses": [
+            "AIDER AGXAG"
+        ]
+    },
+    "AGXGX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "-I-E-",
+        "unlocated_letters_in_word": "A",
+        "letters_not_in_word": "DR",
+        "previous_guesses": [
+            "AIDER AGXGX"
+        ]
+    },
+    "AGXGA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "-I-E-",
+        "unlocated_letters_in_word": "AR",
+        "letters_not_in_word": "D",
+        "previous_guesses": [
+            "AIDER AGXGA"
+        ]
+    },
+    "AGXGG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": ""
+        },
+        "known_letters": "-I-ER",
+        "unlocated_letters_in_word": "A",
+        "letters_not_in_word": "D",
+        "previous_guesses": [
+            "AIDER AGXGG"
+        ]
+    },
+    "AGAXX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-I---",
+        "unlocated_letters_in_word": "AD",
+        "letters_not_in_word": "ER",
+        "previous_guesses": [
+            "AIDER AGAXX"
+        ]
+    },
+    "AGAXA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-I---",
+        "unlocated_letters_in_word": "ADR",
+        "letters_not_in_word": "E",
+        "previous_guesses": [
+            "AIDER AGAXA"
+        ]
+    },
+    "AGAXG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "-I--R",
+        "unlocated_letters_in_word": "AD",
+        "letters_not_in_word": "E",
+        "previous_guesses": [
+            "AIDER AGAXG"
+        ]
+    },
+    "AGAAX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-I---",
+        "unlocated_letters_in_word": "ADE",
+        "letters_not_in_word": "R",
+        "previous_guesses": [
+            "AIDER AGAAX"
+        ]
+    },
+    "AGAAA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-I---",
+        "unlocated_letters_in_word": "ADER",
+        "letters_not_in_word": "",
+        "previous_guesses": [
+            "AIDER AGAAA"
+        ]
+    },
+    "AGAAG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "-I--R",
+        "unlocated_letters_in_word": "ADE",
+        "letters_not_in_word": "",
+        "previous_guesses": [
+            "AIDER AGAAG"
+        ]
+    },
+    "AGAGX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "-I-E-",
+        "unlocated_letters_in_word": "AD",
+        "letters_not_in_word": "R",
+        "previous_guesses": [
+            "AIDER AGAGX"
+        ]
+    },
+    "AGAGA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "-I-E-",
+        "unlocated_letters_in_word": "ADR",
+        "letters_not_in_word": "",
+        "previous_guesses": [
+            "AIDER AGAGA"
+        ]
+    },
+    "AGAGG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": ""
+        },
+        "known_letters": "-I-ER",
+        "unlocated_letters_in_word": "AD",
+        "letters_not_in_word": "",
+        "previous_guesses": [
+            "AIDER AGAGG"
+        ]
+    },
+    "AGGXX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-ID--",
+        "unlocated_letters_in_word": "A",
+        "letters_not_in_word": "ER",
+        "previous_guesses": [
+            "AIDER AGGXX"
+        ]
+    },
+    "AGGXA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-ID--",
+        "unlocated_letters_in_word": "AR",
+        "letters_not_in_word": "E",
+        "previous_guesses": [
+            "AIDER AGGXA"
+        ]
+    },
+    "AGGXG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "-ID-R",
+        "unlocated_letters_in_word": "A",
+        "letters_not_in_word": "E",
+        "previous_guesses": [
+            "AIDER AGGXG"
+        ]
+    },
+    "AGGAX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-ID--",
+        "unlocated_letters_in_word": "AE",
+        "letters_not_in_word": "R",
+        "previous_guesses": [
+            "AIDER AGGAX"
+        ]
+    },
+    "AGGAA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "-ID--",
+        "unlocated_letters_in_word": "AER",
+        "letters_not_in_word": "",
+        "previous_guesses": [
+            "AIDER AGGAA"
+        ]
+    },
+    "AGGAG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "-ID-R",
+        "unlocated_letters_in_word": "AE",
+        "letters_not_in_word": "",
+        "previous_guesses": [
+            "AIDER AGGAG"
+        ]
+    },
+    "AGGGX": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "-IDE-",
+        "unlocated_letters_in_word": "A",
+        "letters_not_in_word": "R",
+        "previous_guesses": [
+            "AIDER AGGGX"
+        ]
+    },
+    "AGGGA": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "-IDE-",
+        "unlocated_letters_in_word": "AR",
+        "letters_not_in_word": "",
+        "previous_guesses": [
+            "AIDER AGGGA"
+        ]
+    },
+    "AGGGG": {
+        "exclusions": {
+            "1st char": "A",
+            "2nd char": "",
+            "3rd char": "",
+            "4th char": "",
+            "5th char": ""
+        },
+        "known_letters": "-IDER",
+        "unlocated_letters_in_word": "A",
+        "letters_not_in_word": "",
+        "previous_guesses": [
+            "AIDER AGGGG"
+        ]
+    },
+    "GXXXX": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "A----",
+        "unlocated_letters_in_word": "",
+        "letters_not_in_word": "IDER",
+        "previous_guesses": [
+            "AIDER GXXXX"
+        ]
+    },
+    "GXXXA": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "A----",
+        "unlocated_letters_in_word": "R",
+        "letters_not_in_word": "IDE",
+        "previous_guesses": [
+            "AIDER GXXXA"
+        ]
+    },
+    "GXXXG": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "A---R",
+        "unlocated_letters_in_word": "",
+        "letters_not_in_word": "IDE",
+        "previous_guesses": [
+            "AIDER GXXXG"
+        ]
+    },
+    "GXXAX": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "A----",
+        "unlocated_letters_in_word": "E",
+        "letters_not_in_word": "IDR",
+        "previous_guesses": [
+            "AIDER GXXAX"
+        ]
+    },
+    "GXXAA": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "A----",
+        "unlocated_letters_in_word": "ER",
+        "letters_not_in_word": "ID",
+        "previous_guesses": [
+            "AIDER GXXAA"
+        ]
+    },
+    "GXXAG": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "A---R",
+        "unlocated_letters_in_word": "E",
+        "letters_not_in_word": "ID",
+        "previous_guesses": [
+            "AIDER GXXAG"
+        ]
+    },
+    "GXXGX": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "A--E-",
+        "unlocated_letters_in_word": "",
+        "letters_not_in_word": "IDR",
+        "previous_guesses": [
+            "AIDER GXXGX"
+        ]
+    },
+    "GXXGA": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "A--E-",
+        "unlocated_letters_in_word": "R",
+        "letters_not_in_word": "ID",
+        "previous_guesses": [
+            "AIDER GXXGA"
+        ]
+    },
+    "GXXGG": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": ""
+        },
+        "known_letters": "A--ER",
+        "unlocated_letters_in_word": "",
+        "letters_not_in_word": "ID",
+        "previous_guesses": [
+            "AIDER GXXGG"
+        ]
+    },
+    "GXAXX": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "A----",
+        "unlocated_letters_in_word": "D",
+        "letters_not_in_word": "IER",
+        "previous_guesses": [
+            "AIDER GXAXX"
+        ]
+    },
+    "GXAXA": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "A----",
+        "unlocated_letters_in_word": "DR",
+        "letters_not_in_word": "IE",
+        "previous_guesses": [
+            "AIDER GXAXA"
+        ]
+    },
+    "GXAXG": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "A---R",
+        "unlocated_letters_in_word": "D",
+        "letters_not_in_word": "IE",
+        "previous_guesses": [
+            "AIDER GXAXG"
+        ]
+    },
+    "GXAAX": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "A----",
+        "unlocated_letters_in_word": "DE",
+        "letters_not_in_word": "IR",
+        "previous_guesses": [
+            "AIDER GXAAX"
+        ]
+    },
+    "GXAAA": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "A----",
+        "unlocated_letters_in_word": "DER",
+        "letters_not_in_word": "I",
+        "previous_guesses": [
+            "AIDER GXAAA"
+        ]
+    },
+    "GXAAG": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "A---R",
+        "unlocated_letters_in_word": "DE",
+        "letters_not_in_word": "I",
+        "previous_guesses": [
+            "AIDER GXAAG"
+        ]
+    },
+    "GXAGX": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "A--E-",
+        "unlocated_letters_in_word": "D",
+        "letters_not_in_word": "IR",
+        "previous_guesses": [
+            "AIDER GXAGX"
+        ]
+    },
+    "GXAGA": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "A--E-",
+        "unlocated_letters_in_word": "DR",
+        "letters_not_in_word": "I",
+        "previous_guesses": [
+            "AIDER GXAGA"
+        ]
+    },
+    "GXAGG": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": ""
+        },
+        "known_letters": "A--ER",
+        "unlocated_letters_in_word": "D",
+        "letters_not_in_word": "I",
+        "previous_guesses": [
+            "AIDER GXAGG"
+        ]
+    },
+    "GXGXX": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "A-D--",
+        "unlocated_letters_in_word": "",
+        "letters_not_in_word": "IER",
+        "previous_guesses": [
+            "AIDER GXGXX"
+        ]
+    },
+    "GXGXA": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "A-D--",
+        "unlocated_letters_in_word": "R",
+        "letters_not_in_word": "IE",
+        "previous_guesses": [
+            "AIDER GXGXA"
+        ]
+    },
+    "GXGXG": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "A-D-R",
+        "unlocated_letters_in_word": "",
+        "letters_not_in_word": "IE",
+        "previous_guesses": [
+            "AIDER GXGXG"
+        ]
+    },
+    "GXGAX": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "A-D--",
+        "unlocated_letters_in_word": "E",
+        "letters_not_in_word": "IR",
+        "previous_guesses": [
+            "AIDER GXGAX"
+        ]
+    },
+    "GXGAA": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "A-D--",
+        "unlocated_letters_in_word": "ER",
+        "letters_not_in_word": "I",
+        "previous_guesses": [
+            "AIDER GXGAA"
+        ]
+    },
+    "GXGAG": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "A-D-R",
+        "unlocated_letters_in_word": "E",
+        "letters_not_in_word": "I",
+        "previous_guesses": [
+            "AIDER GXGAG"
+        ]
+    },
+    "GXGGX": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "A-DE-",
+        "unlocated_letters_in_word": "",
+        "letters_not_in_word": "IR",
+        "previous_guesses": [
+            "AIDER GXGGX"
+        ]
+    },
+    "GXGGA": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "A-DE-",
+        "unlocated_letters_in_word": "R",
+        "letters_not_in_word": "I",
+        "previous_guesses": [
+            "AIDER GXGGA"
+        ]
+    },
+    "GXGGG": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "",
+            "5th char": ""
+        },
+        "known_letters": "A-DER",
+        "unlocated_letters_in_word": "",
+        "letters_not_in_word": "I",
+        "previous_guesses": [
+            "AIDER GXGGG"
+        ]
+    },
+    "GAXXX": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "A----",
+        "unlocated_letters_in_word": "I",
+        "letters_not_in_word": "DER",
+        "previous_guesses": [
+            "AIDER GAXXX"
+        ]
+    },
+    "GAXXA": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "A----",
+        "unlocated_letters_in_word": "IR",
+        "letters_not_in_word": "DE",
+        "previous_guesses": [
+            "AIDER GAXXA"
+        ]
+    },
+    "GAXXG": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "A---R",
+        "unlocated_letters_in_word": "I",
+        "letters_not_in_word": "DE",
+        "previous_guesses": [
+            "AIDER GAXXG"
+        ]
+    },
+    "GAXAX": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "A----",
+        "unlocated_letters_in_word": "IE",
+        "letters_not_in_word": "DR",
+        "previous_guesses": [
+            "AIDER GAXAX"
+        ]
+    },
+    "GAXAA": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "A----",
+        "unlocated_letters_in_word": "IER",
+        "letters_not_in_word": "D",
+        "previous_guesses": [
+            "AIDER GAXAA"
+        ]
+    },
+    "GAXAG": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "A---R",
+        "unlocated_letters_in_word": "IE",
+        "letters_not_in_word": "D",
+        "previous_guesses": [
+            "AIDER GAXAG"
+        ]
+    },
+    "GAXGX": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "A--E-",
+        "unlocated_letters_in_word": "I",
+        "letters_not_in_word": "DR",
+        "previous_guesses": [
+            "AIDER GAXGX"
+        ]
+    },
+    "GAXGA": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "A--E-",
+        "unlocated_letters_in_word": "IR",
+        "letters_not_in_word": "D",
+        "previous_guesses": [
+            "AIDER GAXGA"
+        ]
+    },
+    "GAXGG": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": ""
+        },
+        "known_letters": "A--ER",
+        "unlocated_letters_in_word": "I",
+        "letters_not_in_word": "D",
+        "previous_guesses": [
+            "AIDER GAXGG"
+        ]
+    },
+    "GAAXX": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "A----",
+        "unlocated_letters_in_word": "ID",
+        "letters_not_in_word": "ER",
+        "previous_guesses": [
+            "AIDER GAAXX"
+        ]
+    },
+    "GAAXA": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "A----",
+        "unlocated_letters_in_word": "IDR",
+        "letters_not_in_word": "E",
+        "previous_guesses": [
+            "AIDER GAAXA"
+        ]
+    },
+    "GAAXG": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "A---R",
+        "unlocated_letters_in_word": "ID",
+        "letters_not_in_word": "E",
+        "previous_guesses": [
+            "AIDER GAAXG"
+        ]
+    },
+    "GAAAX": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "A----",
+        "unlocated_letters_in_word": "IDE",
+        "letters_not_in_word": "R",
+        "previous_guesses": [
+            "AIDER GAAAX"
+        ]
+    },
+    "GAAAA": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "A----",
+        "unlocated_letters_in_word": "IDER",
+        "letters_not_in_word": "",
+        "previous_guesses": [
+            "AIDER GAAAA"
+        ]
+    },
+    "GAAAG": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "A---R",
+        "unlocated_letters_in_word": "IDE",
+        "letters_not_in_word": "",
+        "previous_guesses": [
+            "AIDER GAAAG"
+        ]
+    },
+    "GAAGX": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "A--E-",
+        "unlocated_letters_in_word": "ID",
+        "letters_not_in_word": "R",
+        "previous_guesses": [
+            "AIDER GAAGX"
+        ]
+    },
+    "GAAGA": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "A--E-",
+        "unlocated_letters_in_word": "IDR",
+        "letters_not_in_word": "",
+        "previous_guesses": [
+            "AIDER GAAGA"
+        ]
+    },
+    "GAAGG": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": ""
+        },
+        "known_letters": "A--ER",
+        "unlocated_letters_in_word": "ID",
+        "letters_not_in_word": "",
+        "previous_guesses": [
+            "AIDER GAAGG"
+        ]
+    },
+    "GAGXX": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "A-D--",
+        "unlocated_letters_in_word": "I",
+        "letters_not_in_word": "ER",
+        "previous_guesses": [
+            "AIDER GAGXX"
+        ]
+    },
+    "GAGXA": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "A-D--",
+        "unlocated_letters_in_word": "IR",
+        "letters_not_in_word": "E",
+        "previous_guesses": [
+            "AIDER GAGXA"
+        ]
+    },
+    "GAGXG": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "A-D-R",
+        "unlocated_letters_in_word": "I",
+        "letters_not_in_word": "E",
+        "previous_guesses": [
+            "AIDER GAGXG"
+        ]
+    },
+    "GAGAX": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "A-D--",
+        "unlocated_letters_in_word": "IE",
+        "letters_not_in_word": "R",
+        "previous_guesses": [
+            "AIDER GAGAX"
+        ]
+    },
+    "GAGAA": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "A-D--",
+        "unlocated_letters_in_word": "IER",
+        "letters_not_in_word": "",
+        "previous_guesses": [
+            "AIDER GAGAA"
+        ]
+    },
+    "GAGAG": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "A-D-R",
+        "unlocated_letters_in_word": "IE",
+        "letters_not_in_word": "",
+        "previous_guesses": [
+            "AIDER GAGAG"
+        ]
+    },
+    "GAGGX": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "A-DE-",
+        "unlocated_letters_in_word": "I",
+        "letters_not_in_word": "R",
+        "previous_guesses": [
+            "AIDER GAGGX"
+        ]
+    },
+    "GAGGA": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "A-DE-",
+        "unlocated_letters_in_word": "IR",
+        "letters_not_in_word": "",
+        "previous_guesses": [
+            "AIDER GAGGA"
+        ]
+    },
+    "GAGGG": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "I",
+            "3rd char": "",
+            "4th char": "",
+            "5th char": ""
+        },
+        "known_letters": "A-DER",
+        "unlocated_letters_in_word": "I",
+        "letters_not_in_word": "",
+        "previous_guesses": [
+            "AIDER GAGGG"
+        ]
+    },
+    "GGXXX": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "AI---",
+        "unlocated_letters_in_word": "",
+        "letters_not_in_word": "DER",
+        "previous_guesses": [
+            "AIDER GGXXX"
+        ]
+    },
+    "GGXXA": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "AI---",
+        "unlocated_letters_in_word": "R",
+        "letters_not_in_word": "DE",
+        "previous_guesses": [
+            "AIDER GGXXA"
+        ]
+    },
+    "GGXXG": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "AI--R",
+        "unlocated_letters_in_word": "",
+        "letters_not_in_word": "DE",
+        "previous_guesses": [
+            "AIDER GGXXG"
+        ]
+    },
+    "GGXAX": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "AI---",
+        "unlocated_letters_in_word": "E",
+        "letters_not_in_word": "DR",
+        "previous_guesses": [
+            "AIDER GGXAX"
+        ]
+    },
+    "GGXAA": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "AI---",
+        "unlocated_letters_in_word": "ER",
+        "letters_not_in_word": "D",
+        "previous_guesses": [
+            "AIDER GGXAA"
+        ]
+    },
+    "GGXAG": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "AI--R",
+        "unlocated_letters_in_word": "E",
+        "letters_not_in_word": "D",
+        "previous_guesses": [
+            "AIDER GGXAG"
+        ]
+    },
+    "GGXGX": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "AI-E-",
+        "unlocated_letters_in_word": "",
+        "letters_not_in_word": "DR",
+        "previous_guesses": [
+            "AIDER GGXGX"
+        ]
+    },
+    "GGXGA": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "AI-E-",
+        "unlocated_letters_in_word": "R",
+        "letters_not_in_word": "D",
+        "previous_guesses": [
+            "AIDER GGXGA"
+        ]
+    },
+    "GGXGG": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": ""
+        },
+        "known_letters": "AI-ER",
+        "unlocated_letters_in_word": "",
+        "letters_not_in_word": "D",
+        "previous_guesses": [
+            "AIDER GGXGG"
+        ]
+    },
+    "GGAXX": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "AI---",
+        "unlocated_letters_in_word": "D",
+        "letters_not_in_word": "ER",
+        "previous_guesses": [
+            "AIDER GGAXX"
+        ]
+    },
+    "GGAXA": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "AI---",
+        "unlocated_letters_in_word": "DR",
+        "letters_not_in_word": "E",
+        "previous_guesses": [
+            "AIDER GGAXA"
+        ]
+    },
+    "GGAXG": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "AI--R",
+        "unlocated_letters_in_word": "D",
+        "letters_not_in_word": "E",
+        "previous_guesses": [
+            "AIDER GGAXG"
+        ]
+    },
+    "GGAAX": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "AI---",
+        "unlocated_letters_in_word": "DE",
+        "letters_not_in_word": "R",
+        "previous_guesses": [
+            "AIDER GGAAX"
+        ]
+    },
+    "GGAAA": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "AI---",
+        "unlocated_letters_in_word": "DER",
+        "letters_not_in_word": "",
+        "previous_guesses": [
+            "AIDER GGAAA"
+        ]
+    },
+    "GGAAG": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "AI--R",
+        "unlocated_letters_in_word": "DE",
+        "letters_not_in_word": "",
+        "previous_guesses": [
+            "AIDER GGAAG"
+        ]
+    },
+    "GGAGX": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "AI-E-",
+        "unlocated_letters_in_word": "D",
+        "letters_not_in_word": "R",
+        "previous_guesses": [
+            "AIDER GGAGX"
+        ]
+    },
+    "GGAGA": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "AI-E-",
+        "unlocated_letters_in_word": "DR",
+        "letters_not_in_word": "",
+        "previous_guesses": [
+            "AIDER GGAGA"
+        ]
+    },
+    "GGAGG": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "",
+            "3rd char": "D",
+            "4th char": "",
+            "5th char": ""
+        },
+        "known_letters": "AI-ER",
+        "unlocated_letters_in_word": "D",
+        "letters_not_in_word": "",
+        "previous_guesses": [
+            "AIDER GGAGG"
+        ]
+    },
+    "GGGXX": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "AID--",
+        "unlocated_letters_in_word": "",
+        "letters_not_in_word": "ER",
+        "previous_guesses": [
+            "AIDER GGGXX"
+        ]
+    },
+    "GGGXA": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "AID--",
+        "unlocated_letters_in_word": "R",
+        "letters_not_in_word": "E",
+        "previous_guesses": [
+            "AIDER GGGXA"
+        ]
+    },
+    "GGGXG": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "AID-R",
+        "unlocated_letters_in_word": "",
+        "letters_not_in_word": "E",
+        "previous_guesses": [
+            "AIDER GGGXG"
+        ]
+    },
+    "GGGAX": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "AID--",
+        "unlocated_letters_in_word": "E",
+        "letters_not_in_word": "R",
+        "previous_guesses": [
+            "AIDER GGGAX"
+        ]
+    },
+    "GGGAA": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": "R"
+        },
+        "known_letters": "AID--",
+        "unlocated_letters_in_word": "ER",
+        "letters_not_in_word": "",
+        "previous_guesses": [
+            "AIDER GGGAA"
+        ]
+    },
+    "GGGAG": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "",
+            "3rd char": "",
+            "4th char": "E",
+            "5th char": ""
+        },
+        "known_letters": "AID-R",
+        "unlocated_letters_in_word": "E",
+        "letters_not_in_word": "",
+        "previous_guesses": [
+            "AIDER GGGAG"
+        ]
+    },
+    "GGGGX": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "",
+            "3rd char": "",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "AIDE-",
+        "unlocated_letters_in_word": "",
+        "letters_not_in_word": "R",
+        "previous_guesses": [
+            "AIDER GGGGX"
+        ]
+    },
+    "GGGGA": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "",
+            "3rd char": "",
+            "4th char": "",
+            "5th char": "R"
+        },
+        "known_letters": "AIDE-",
+        "unlocated_letters_in_word": "R",
+        "letters_not_in_word": "",
+        "previous_guesses": [
+            "AIDER GGGGA"
+        ]
+    },
+    "GGGGG": {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "",
+            "3rd char": "",
+            "4th char": "",
+            "5th char": ""
+        },
+        "known_letters": "AIDER",
+        "unlocated_letters_in_word": "",
+        "letters_not_in_word": "",
+        "previous_guesses": [
+            "AIDER GGGGG"
+        ]
+    }
+}

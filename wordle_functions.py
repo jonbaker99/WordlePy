@@ -130,13 +130,18 @@ def candidates_match_known(word_list: pd.DataFrame, known_letters: str):
     """
     Filters words to match the known letters pattern.
     """
+    if word_list.empty:
+        return word_list
     pattern = known_letters.replace("-", ".")
     return word_list[word_list['WORD'].str.match(pattern, na=False)]
 
-def filter_words_by_exclusions(word_list, exclusions):
+
+def filter_words_by_exclusions(word_list: pd.DataFrame, exclusions):
     """
     Filters words based on exclusion criteria.
     """
+    if word_list.empty:
+        return word_list
     def meets_criteria(word):
         for char_set, char in zip(exclusions.values(), word):
             if char.upper() in char_set.upper():
@@ -144,10 +149,13 @@ def filter_words_by_exclusions(word_list, exclusions):
         return True
     return word_list[word_list['WORD'].apply(meets_criteria)]
 
+
 def candidates_all_letters(word_list: pd.DataFrame, known_letters: str, unlocated_letters: str):
     """
     Filters words to contain all required letters.
     """
+    if word_list.empty:
+        return word_list
     from re import sub
     letters_only = sub('[^A-Za-z]', '', known_letters)
     all_letters = (unlocated_letters + letters_only).upper()
@@ -156,6 +164,7 @@ def candidates_all_letters(word_list: pd.DataFrame, known_letters: str, unlocate
         word_counts = Counter(word.upper())
         return all(word_counts[ch] >= cnt for ch, cnt in required_counts.items())
     return word_list[word_list['WORD'].apply(matches_condition)]
+
 
 def candidates_ex_excluded(word_list: pd.DataFrame, letters_not_in_word: str):
     """
@@ -167,6 +176,7 @@ def candidates_ex_excluded(word_list: pd.DataFrame, letters_not_in_word: str):
     def does_not_contain(word):
         return excluded_letters.isdisjoint(set(word.upper()))
     return word_list[word_list['WORD'].apply(does_not_contain)]
+
 
 def wordle_filter(inputs, word_list: pd.DataFrame):
     """
