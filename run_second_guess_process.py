@@ -108,11 +108,43 @@ def run_analysis_on_filtered_patterns(json_file, output_file, max_candidates=200
     print(f"\nStarting analysis at {start_time}")
     print("-" * 60)
     
-    for i, pattern in enumerate(patterns_remaining, 1):
-        data = filtered_data[pattern]
+    # Sort patterns by candidate count in ascending order
+    patterns_to_process_sorted = sorted(
+        patterns_remaining.items(),
+        key=lambda x: x[1]["remaining_candidates"]["count"]
+    )
+    
+    # Time estimation constants
+    a, b, c = 0.00454187, -0.04628192, 0.20732144
+    
+    # Calculate total estimated time for all remaining patterns
+    total_estimated_time = 0
+    for pattern, data in patterns_to_process_sorted:
+        candidate_count = data["remaining_candidates"]["count"]
+        pattern_time = a * (candidate_count)**2 + b * (candidate_count) + c
+        total_estimated_time += pattern_time
+    
+    print(f"Estimated total time for all patterns: {format_time(total_estimated_time)}")
+    print("-" * 60)
+    
+    for i, (pattern, data) in enumerate(patterns_to_process_sorted, 1):
         candidate_count = data["remaining_candidates"]["count"]
         
+        # Estimate time for this pattern
+        estimated_time = a * (candidate_count)**2 + b * (candidate_count) + c
+        
+        # Calculate remaining time for patterns after this one
+        remaining_time = 0
+        if i < len(patterns_to_process_sorted):
+            for j in range(i, len(patterns_to_process_sorted)):
+                next_pattern, next_data = patterns_to_process_sorted[j]
+                next_count = next_data["remaining_candidates"]["count"]
+                next_time = a * (next_count)**2 + b * (next_count) + c
+                remaining_time += next_time
+        
         print(f"Pattern {i}/{len(patterns_remaining)}: {pattern} ({candidate_count} candidates)")
+        print(f"  Estimated time for this pattern: {format_time(estimated_time)}")
+        print(f"  Estimated time for all remaining patterns: {format_time(remaining_time)}")
         
         # Process timing
         pattern_start_time = time.time()
@@ -139,12 +171,23 @@ def run_analysis_on_filtered_patterns(json_file, output_file, max_candidates=200
             print(f"  Save: {save_status}")
             
             # Estimate remaining time
-            if i < len(patterns_remaining):
-                remaining_patterns = len(patterns_remaining) - i
+            if i < len(patterns_to_process_sorted):
+                # Calculate remaining time based on our time function
+                remaining_time = 0
+                for j in range(i, len(patterns_to_process_sorted)):
+                    next_pattern, next_data = patterns_to_process_sorted[j]
+                    next_count = next_data["remaining_candidates"]["count"]
+                    next_time = a * (next_count)**2 + b * (next_count) + c
+                    remaining_time += next_time
+                
+                print(f"  Updated estimated remaining time: {format_time(remaining_time)}")
+                
+                # Also show the traditional estimate based on average processing time
                 if processed_count > 0:
+                    remaining_patterns = len(patterns_remaining) - i
                     avg_time_per_pattern = (time.time() - total_start_time) / processed_count
                     est_remaining = avg_time_per_pattern * remaining_patterns
-                    print(f"  Estimated remaining time: {format_time(est_remaining)}")
+                    print(f"  Average-based remaining time: {format_time(est_remaining)}")
             
             print("-" * 60)
             
@@ -221,7 +264,7 @@ if __name__ == "__main__":
     # Configuration variables
     input_file = "aider_outcomes_filtered.json"
     output_file = "pattern_analysis_results.json"
-    max_candidate_count = 200
+    max_candidate_count = 500
     test_mode = False  # Set to True to run a test on just a few patterns
     
     # Run the analysis
