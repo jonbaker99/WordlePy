@@ -174,3 +174,15 @@ def perform_full_analysis(guesses, candidates):
     per_word = elapsed / len(guesses) if len(guesses) > 0 else 0
     
     return results_df, elapsed, per_word
+
+def max_analysis_for_pattern(pattern, filtered_data):
+    import expected_value as ev
+    # Your logic to generate a DataFrame for the given pattern
+    candidates = filtered_data[pattern]["remaining_candidates"]["words"]
+    candidates_df = pd.DataFrame({"WORD": candidates})
+    data = ev.perform_full_analysis(candidates, candidates_df)
+    #return pd.DataFrame(data)
+    return data
+
+def estimate_time(count, a = 0.00454187, b = -0.04628192, c = 0.20732144):
+    return a * (count**2) + b * count + c
