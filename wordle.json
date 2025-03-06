@@ -1,13 +1,17 @@
 {
     "exclusions": {
-        "1st char": "",
-        "2nd char": "",
-        "3rd char": "",
-        "4th char": "",
-        "5th char": ""
+        "1st char": "A",
+        "2nd char": "IPH",
+        "3rd char": "DO",
+        "4th char": "ER",
+        "5th char": "RTG"
     },
-    "known_letters": "-----",
+    "known_letters": "S-RU-",
     "unlocated_letters_in_word": "",
-    "letters_not_in_word": "",
-    "previous_guesses": []
+    "letters_not_in_word": "AIDEPOTHG",
+    "previous_guesses": [
+        "AIDER XXXXA (482)",
+        "SPORT GXXAX (8)",
+        "SHRUG GXGGX (2)"
+    ]
 }

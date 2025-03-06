@@ -264,7 +264,7 @@ if __name__ == "__main__":
     # Configuration variables
     input_file = "aider_outcomes_filtered.json"
     output_file = "pattern_analysis_results.json"
-    max_candidate_count = 500
+    max_candidate_count = 10000
     test_mode = False  # Set to True to run a test on just a few patterns
     
     # Run the analysis
