@@ -3,6 +3,7 @@ import pandas as pd
 import os
 import time
 import json
+from collections import Counter
 
 import wordle_functions as wdl
 import expected_value as wev
@@ -22,8 +23,8 @@ def update_sidebar():
     """Update the sidebar with current state information."""
     sidebar_placeholder.empty()  # Clear sidebar first
     with sidebar_placeholder.container():
-        st.subheader("Wordle JSON Criteria")
-        st.json(wdl.load_json_file(st.session_state["wordle_json_path"]))
+        st.subheader("Wordle Criteria")
+        st.json(st.session_state["wordle_criteria"])
         st.subheader("Candidate Words")
         if st.session_state["candidates"] is not None:
             st.write(f"Number of candidates: {len(st.session_state['candidates'])}")
@@ -70,9 +71,31 @@ def run_full_analysis():
 ###############################################################################
 def initialize_session_state():
     """Initialize all session state variables."""
+    # Default Wordle criteria
+    default_criteria = {
+        "exclusions": {
+            "1st char": "",
+            "2nd char": "",
+            "3rd char": "",
+            "4th char": "",
+            "5th char": ""
+        },
+        "known_letters": "-----",
+        "unlocated_letters_in_word": "",
+        "letters_not_in_word": "",
+        "previous_guesses": []
+    }
+    
+    # Try to load from file first for backward compatibility
+    try:
+        json_criteria = wdl.load_json_file("wordle.json")
+        initial_criteria = json_criteria
+    except:
+        initial_criteria = default_criteria
+    
     defaults = {
-        "wordle_json_path": "wordle.json",
-        "previous_guesses": wdl.load_json_file("wordle.json").get("previous_guesses", []),
+        "wordle_criteria": initial_criteria,  # Store criteria in session state
+        "previous_guesses": initial_criteria.get("previous_guesses", []),
         "word_list": pd.read_csv("word_list.csv"),
         "candidates": None,
         "inputs": None,
@@ -98,9 +121,21 @@ def render_reset_section():
     """Render the reset tool section."""
     st.header("1) Reset the Tool")
     if st.button("Reset Wordle Tool"):
-        wdl.reset_wordle_json(st.session_state["wordle_json_path"])
-        data = wdl.load_json_file(st.session_state["wordle_json_path"])
-        st.session_state["previous_guesses"] = data["previous_guesses"]
+        # Reset criteria in session state
+        st.session_state["wordle_criteria"] = {
+            "exclusions": {
+                "1st char": "",
+                "2nd char": "",
+                "3rd char": "",
+                "4th char": "",
+                "5th char": ""
+            },
+            "known_letters": "-----",
+            "unlocated_letters_in_word": "",
+            "letters_not_in_word": "",
+            "previous_guesses": []
+        }
+        st.session_state["previous_guesses"] = []
         st.session_state["candidates"] = None
         st.session_state["inputs"] = None
         st.session_state["guesses"] = None
@@ -112,6 +147,58 @@ def render_reset_section():
         st.success("Tool has been reset.")
         update_sidebar()
         st.rerun()
+
+def update_wordle_criteria(criteria, word, pattern):
+    """
+    Updates the wordle criteria with a new guess and its feedback.
+    This is an in-memory version of update_wordle_json function.
+    """
+    word = word.upper()
+    pattern = pattern.upper()
+    
+    # Pre-calculate frequency of 'A' statuses for each letter in the guess.
+    a_counts = Counter([ch for ch, s in zip(word, pattern) if s.upper() == "A"])
+    
+    for idx, (char, status) in enumerate(zip(word, pattern)):
+        if status == "G":
+            # Place the letter in the correct position.
+            criteria["known_letters"] = (
+                criteria["known_letters"][:idx] + char + criteria["known_letters"][idx+1:]
+            )
+            # Remove this letter from unlocated_letters if present.
+            criteria["unlocated_letters_in_word"] = criteria["unlocated_letters_in_word"].replace(char, "")
+        elif status in ["A", "X"]:
+            key = f"{idx+1}{['st','nd','rd'][idx] if idx < 3 else 'th'} char"
+            current_exclusions = criteria["exclusions"].get(key, "")
+            if char not in current_exclusions:
+                criteria["exclusions"][key] = current_exclusions + char
+            if status == "A":
+                # For an amber, allow additional occurrences beyond those already placed in known_letters.
+                count_known = criteria["known_letters"].upper().count(char)
+                count_unlocated = criteria["unlocated_letters_in_word"].upper().count(char)
+                # If there are more 'A' statuses than what is already known, add one occurrence.
+                if count_unlocated < a_counts[char] - count_known:
+                    criteria["unlocated_letters_in_word"] += char
+            elif status == "X":
+                if char not in criteria["letters_not_in_word"]:
+                    criteria["letters_not_in_word"] += char
+                    
+    # Clean up letters_not_in_word by removing letters present in known or unlocated.
+    letters_to_keep = set(criteria["known_letters"].replace("-", "")) | set(criteria["unlocated_letters_in_word"])
+    criteria["letters_not_in_word"] = "".join(c for c in criteria["letters_not_in_word"] if c not in letters_to_keep)
+    
+    return criteria
+
+def extract_inputs_from_criteria(criteria):
+    """
+    Extract the inputs needed for wordle_filter from the criteria.
+    """
+    return {
+        "exclusions": criteria["exclusions"],
+        "known_letters": criteria["known_letters"],
+        "unlocated_letters_in_word": criteria["unlocated_letters_in_word"],
+        "letters_not_in_word": criteria["letters_not_in_word"]
+    }
 
 def render_guess_section():
     """Render the guess and result input section."""
@@ -142,23 +229,36 @@ def render_guess_section():
         elif len(user_result) != 5 or not all(ch.upper() in ['X', 'A', 'G'] for ch in user_result):
             st.error("Guess result must be exactly 5 characters long (only X, A, or G).")
         else:
+            # Update criteria in session state
             final_guess = f"{user_guess.upper()} {user_result.upper()}"
-            wdl.update_wordle_json(st.session_state["wordle_json_path"], final_guess)
-            st.session_state["inputs"] = wdl.load_wordle_inputs(st.session_state["wordle_json_path"])
+            st.session_state["wordle_criteria"] = update_wordle_criteria(
+                st.session_state["wordle_criteria"].copy(), 
+                user_guess, 
+                user_result
+            )
+            
+            # Extract inputs for filtering
+            st.session_state["inputs"] = extract_inputs_from_criteria(st.session_state["wordle_criteria"])
+            
+            # Filter candidates
             st.session_state["candidates"] = wdl.wordle_filter(st.session_state["inputs"], st.session_state["word_list"])
             num_candidates = len(st.session_state["candidates"])
-            data = wdl.load_json_file(st.session_state["wordle_json_path"])
-            if "previous_guesses" not in data:
-                data["previous_guesses"] = []
-            data["previous_guesses"].append(f"{user_guess.upper()} {user_result.upper()} ({num_candidates})")
-            wdl.save_json_file(st.session_state["wordle_json_path"], data)
-            st.session_state["previous_guesses"] = data["previous_guesses"]
+            
+            # Update previous guesses
+            if "previous_guesses" not in st.session_state["wordle_criteria"]:
+                st.session_state["wordle_criteria"]["previous_guesses"] = []
+            
+            st.session_state["wordle_criteria"]["previous_guesses"].append(
+                f"{user_guess.upper()} {user_result.upper()} ({num_candidates})"
+            )
+            st.session_state["previous_guesses"] = st.session_state["wordle_criteria"]["previous_guesses"]
+            
             st.success("Guess submitted and candidates updated.")
             
             # If this was the second guess, clear AIDER recommendations
             if len(st.session_state["previous_guesses"]) > 1:
                 st.session_state["aider_recommendations"] = None
-                
+            
             update_sidebar()
             st.session_state["default_guess"] = ""
             st.session_state["default_result"] = "XXXXX"
@@ -175,7 +275,7 @@ def render_guess_section():
     
     if is_first_aider_guess:
         # AIDER recommendations section
-        
+        st.markdown("---")
         st.subheader("AIDER First Guess Recommendations")
         
         # Extract the pattern from the previous guess
