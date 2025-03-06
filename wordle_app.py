@@ -2,12 +2,14 @@ import streamlit as st
 import pandas as pd
 import os
 import time
+import json
 
 import wordle_functions as wdl
 import expected_value as wev
+from second_guess_retrieval import get_top_words_for_pattern
 
 # Version info
-version = "2.0.1 CLAUDE"
+version = "2.0.2 CLAUDE"
 script_path = os.path.abspath(__file__)
 last_modified = wdl.get_last_modified_timestamp(script_path)
 
@@ -81,7 +83,8 @@ def initialize_session_state():
         "all_candidates": False,
         "default_guess": "AIDER",
         "default_result": "XXXXX",
-        "analysis_choice": "Max Only"
+        "analysis_choice": "Max Only",
+        "aider_recommendations": None  # New state for AIDER recommendations
     }
     
     for key, default_value in defaults.items():
@@ -105,6 +108,7 @@ def render_reset_section():
         st.session_state["all_candidates"] = False
         st.session_state["default_guess"] = "AIDER"
         st.session_state["default_result"] = "XXXXX"
+        st.session_state["aider_recommendations"] = None  # Reset recommendations
         st.success("Tool has been reset.")
         update_sidebar()
         st.rerun()
@@ -150,16 +154,50 @@ def render_guess_section():
             wdl.save_json_file(st.session_state["wordle_json_path"], data)
             st.session_state["previous_guesses"] = data["previous_guesses"]
             st.success("Guess submitted and candidates updated.")
+            
+            # If this was the second guess, clear AIDER recommendations
+            if len(st.session_state["previous_guesses"]) > 1:
+                st.session_state["aider_recommendations"] = None
+                
             update_sidebar()
             st.session_state["default_guess"] = ""
             st.session_state["default_result"] = "XXXXX"
             st.rerun()
 
-    # Shortcut Buttons for Analysis – only show if candidates have been updated.
+    # Display number of candidates regardless of what buttons are shown
     if st.session_state["candidates"] is not None:
         num_candidates = len(st.session_state["candidates"])
         st.write(f"Number of candidates: {num_candidates}")
-
+    
+    # Conditional section: Either show AIDER recommendations or shortcut buttons
+    is_first_aider_guess = (len(st.session_state["previous_guesses"]) == 1 and 
+                          "AIDER" in st.session_state["previous_guesses"][0].upper())
+    
+    if is_first_aider_guess:
+        # AIDER recommendations section
+        
+        st.subheader("AIDER First Guess Recommendations")
+        
+        # Extract the pattern from the previous guess
+        guess_pattern = st.session_state["previous_guesses"][0].split()[1]
+        
+        if st.button("Show Top 20 Recommended Second Guesses"):
+            try:
+                recommendations = get_top_words_for_pattern(guess_pattern, n=20)
+                if not recommendations.empty:
+                    st.session_state["aider_recommendations"] = recommendations
+                else:
+                    st.error(f"No recommendations found for pattern '{guess_pattern}'")
+            except Exception as e:
+                st.error(f"Error retrieving recommendations: {str(e)}")
+        
+        # Display recommendations if available
+        if st.session_state["aider_recommendations"] is not None:
+            st.dataframe(st.session_state["aider_recommendations"])
+            st.info("These are the top 20 recommended second guesses based on analysis of the AIDER first guess pattern.")
+    
+    # Shortcut Buttons for Analysis – only show if not first AIDER guess and candidates exist
+    elif st.session_state["candidates"] is not None:
         col1, col2 = st.columns(2)
 
         with col1:
